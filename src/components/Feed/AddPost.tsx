@@ -7,6 +7,7 @@ import Avatar from "../Avatar/Avatar";
 
 function AddPost() {
   const [text, setText] = useState("");
+  const [isTxtAreaFocused, setIsTxtAreaFocused] = useState(false);
 
   return (
     <div className={styles["container-post"]}>
@@ -22,12 +23,13 @@ function AddPost() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={Math.ceil(text.length / 67) || 1}
+          onFocus={() => setIsTxtAreaFocused(true)}
         />
 
-        <div className={styles["post-cfg"]}>
+        {isTxtAreaFocused && <div className={styles["post-cfg"]}>
           <ImEarth color="#1d9bf0" />
           <span className={styles["span-cfg"]}>Everyone can reply</span>
-        </div>
+        </div>}
 
         <div className={styles["text-addons"]}>
           <div className={styles["ico-txts"]}>

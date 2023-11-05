@@ -1,0 +1,125 @@
+.container-post {
+  margin-inline: -12px;
+  padding-inline: 16px;
+  display: flex;
+  padding-top: 8px;
+  border-bottom: 1px solid #2f3336;
+}
+.container-post:hover {
+  background-color: rgba(255, 255, 255, 0.041);
+}
+
+.ico-avatar {
+    margin-top: 5px;
+  width: 10%;
+  background-color: unset;
+}
+
+.content-wrap {
+  display: flex;
+  flex-direction: column;
+  background-color: unset;
+  width: 100%;
+}
+
+.author-info {
+  display: flex;
+  justify-content: space-between;
+  background-color: unset;
+}
+
+.naming-info {
+  background-color: unset;
+  display: flex;
+  gap: 5px;
+}
+.ico-wrap {
+  background-color: unset;
+  width: 35px;
+  height: 35px;
+  border-radius: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.ico-wrap:hover {
+  background-color: rgba(29, 156, 240, 0.25);
+}
+
+.user-name {
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.user-name:hover {
+  text-decoration: underline;
+}
+
+.user-tag {
+  color: #2f3336;
+  font-size: 15px;
+  cursor: pointer;
+}
+.user-tag:last-child:hover {
+  text-decoration: underline;
+}
+
+.content {
+  margin-top: -8px;
+  background-color: unset;
+}
+.content span {
+  font-size: 15px;
+}
+
+.panel {
+  display: flex;
+  background-color: unset;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.opt-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: unset;
+  cursor: pointer;
+  gap: 5px;
+}
+.opt-wrap:last-child {
+  padding-right: 8px;
+}
+.ico {
+  width: 32px;
+  height: 32px;
+  background-color: unset;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ico:hover {
+    background-color: rgba(29, 156, 240, 0.25);
+}
+.ico-like {
+  width: 32px;
+  height: 32px;
+  background-color: unset;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ico-like:hover {
+  background-color: rgba(255, 0, 119, 0.24);
+}
+
+.counter {
+  color: #2f3336;
+  font-size: 15px;
+  cursor: pointer;
+}

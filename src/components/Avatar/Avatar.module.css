@@ -1,11 +1,17 @@
-.container-avatar{
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
+.container-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.container-avatar img{
-    width: inherit;
-    height: inherit;
-    border-radius: inherit;
+.container-avatar img {
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+}
+
+/*todo*/
+.onmouse:hover {
+  background-color: rgb(0, 0, 0) !important;
 }

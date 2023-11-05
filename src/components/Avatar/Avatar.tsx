@@ -1,16 +1,17 @@
-import React from 'react'
-import styles from './Avatar.module.css'
+import React from "react";
+import styles from "./Avatar.module.css";
 
 type AvatarProps = {
-    imgURL: string;
-}
+  imgURL: string;
+  hover?: boolean;
+};
 
-function Avatar({imgURL} : AvatarProps) {
+function Avatar({ imgURL, hover }: AvatarProps) {
   return (
-    <div className={styles['container-avatar']}>
-        <img src={imgURL}/>
+    <div className={[styles["container-avatar"], hover && "onmouse"].join(" ")}>
+      <img src={imgURL} />
     </div>
-  )
+  );
 }
 
-export default Avatar
+export default Avatar;
