@@ -7,13 +7,14 @@
 
 .avatar-wrap {
   width: 10%;
+  margin-left: -16px;
   padding-top: 10px;
   display: flex;
   justify-content: center;
 }
 
 .post-area {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;

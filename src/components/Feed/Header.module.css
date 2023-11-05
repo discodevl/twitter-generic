@@ -3,6 +3,14 @@ header {
   border-bottom: 1px solid #2f3336;
   margin-inline: -12px;
   display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  background: rgba(0, 0, 0, 0.79);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
 }
 
 .header-opt{
@@ -11,6 +19,7 @@ header {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  background-color: none;
 }
 
 .header-opt:hover{
@@ -22,6 +31,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: none;
 }
 
 .ico-cfg-wrap{

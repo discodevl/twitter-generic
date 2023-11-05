@@ -8,6 +8,7 @@ import {
 } from "react-icons/fi";
 import {useNavigate} from 'react-router-dom';
 import styles from "./SideBar.module.css";
+import Avatar from "../Avatar/Avatar";
 
 function SideBar() {
   const navigate = useNavigate();
@@ -51,7 +52,8 @@ function SideBar() {
       <div className={styles["btn-wrap"]}>
         <div className={styles["user-first-col"]}>
           <div className={styles["ico-wrap"]}>
-            <FiUser size="25px" />
+            {/* <FiUser size="25px" /> */}
+            <Avatar imgURL="https://noticiasdatv.uol.com.br/media/_versions/artigos_2021/luva-de-pedreiro-abandona-carreira-foto-reproducao-instagram_fixed_large.jpg"/>
           </div>
           <div className={styles["user-info-wrap"]}>
             <span className={styles["nav-span"]}>userName</span>

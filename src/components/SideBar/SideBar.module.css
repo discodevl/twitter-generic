@@ -65,6 +65,7 @@
 .user-first-col {
   display: flex;
   background-color: unset;
+  gap: 5px;
 }
 
 .nav-span {
