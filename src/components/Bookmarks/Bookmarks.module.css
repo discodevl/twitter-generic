@@ -5,14 +5,16 @@
 }
 
 .header-bk {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
-    
-  background: rgba(0, 0, 0, 0.91);
+  background: rgba(0, 0, 0, 0.79);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5.2px);
-  -webkit-backdrop-filter: blur(5.2px);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
 }
 
 .title-wrap {

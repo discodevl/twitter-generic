@@ -11,7 +11,7 @@ function App() {
   return (
     <Container>
       <Row>
-        <Col lg={3} className="border-nav-right">
+        <Col lg={3} className="border-nav-left">
           <SideBar />
         </Col>
         <Col lg={6}>
@@ -23,7 +23,7 @@ function App() {
           </Routes>
           
         </Col>
-        <Col lg={3} className="border-nav-left">
+        <Col lg={3} className="border-nav-right">
           <Trends />
         </Col>
       </Row>

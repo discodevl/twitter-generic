@@ -6,11 +6,17 @@ div {
   color: #e7e9ea;
 }
 
-.border-nav-right{
+.border-nav-left{
   border-right: 1px solid #2f3336;
   height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
-.border-nav-left{
+.border-nav-right{
   border-left: 1px solid #2f3336;
   height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }

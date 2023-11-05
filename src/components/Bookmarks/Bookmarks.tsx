@@ -1,5 +1,5 @@
-import styles from "./Bookmarks.module.css";
 import { FiMoreHorizontal } from "react-icons/fi";
+import styles from "./Bookmarks.module.css";
 
 function Bookmarks() {
   return (
@@ -14,36 +14,186 @@ function Bookmarks() {
         </div>
       </div>
 
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste illo? Exercitationem unde sint quos commodi fugit ab officiis similique odio, modi officia vero corrupti, quibusdam consequatur. Architecto, repudiandae eveniet.lorem</p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, iste
+        illo? Exercitationem unde sint quos commodi fugit ab officiis similique
+        odio, modi officia vero corrupti, quibusdam consequatur. Architecto,
+        repudiandae eveniet.lorem
+      </p>
     </div>
   );
 }

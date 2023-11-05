@@ -1,5 +1,5 @@
-.container-trends{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.container-trends {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

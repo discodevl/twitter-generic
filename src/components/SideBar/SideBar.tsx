@@ -13,7 +13,7 @@ function SideBar() {
   const navigate = useNavigate();
 
   return (
-    <nav className={styles["container-nav"]}>
+    <nav className={[styles["container-nav"], ""].join(' ')}>
       <div className={styles["tt-button"]}>
         <FiTwitter size="30px" />
       </div>
@@ -59,7 +59,7 @@ function SideBar() {
           </div>
         </div>
         <section className="dett-ico-wrap">
-          <FiMoreHorizontal size="25px"/>
+          <FiMoreHorizontal size="25px" />
         </section>
       </div>
     </nav>
