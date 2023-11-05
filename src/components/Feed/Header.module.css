@@ -1,0 +1,46 @@
+header {
+  height: 50px;
+  border-bottom: 1px solid #2f3336;
+  margin-inline: -12px;
+  display: flex;
+}
+
+.header-opt{
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.header-opt:hover{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.config{
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ico-cfg-wrap{
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+.ico-cfg-wrap:hover{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.label-wrap{
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: unset;
+}
