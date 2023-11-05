@@ -1,0 +1,76 @@
+.container-whofollow {
+  background-color: #16181c;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 16px;
+  margin-top: 5px;
+  /* gap: 15px; */
+}
+
+.title {
+  padding: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  /* margin-bottom: 10px; */
+}
+
+.user-container {
+  padding: 12px;
+  display: flex;
+  background-color: unset;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.user-container:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.expand-container {
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  padding: 16px;
+  display: flex;
+  background-color: unset;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.expand-container:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.expand-container span{
+    font-size: 15px;
+    color: #1d9bf0;
+}
+
+.user-name-wrap {
+  background-color: unset;
+  display: flex;
+  flex-direction: column;
+}
+
+.name-span {
+  font-size: 15px;
+  font-weight: bold;
+}
+.name-span:hover{
+    text-decoration: underline;
+}
+
+.tag-span {
+  font-size: 15px;
+  color: #71767b;
+}
+
+.btn-folllow {
+  margin-left: auto;
+  border: none;
+  border-radius: 15px;
+  padding-inline: 16px;
+  height: 30px;
+}
+
+

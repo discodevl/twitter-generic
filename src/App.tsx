@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import Feed from "./components/Feed/Feed";
 import SideBar from "./components/SideBar/SideBar";
 import Trends from "./components/Trends/Trends";
+import Explore from "./components/Explore/Explore";
+import Bookmarks from "./components/Bookmarks/Bookmarks";
 
 function App() {
 
@@ -15,8 +17,8 @@ function App() {
         <Col lg={6}>
           <Routes>
             <Route path="/" element={<Feed />}/>
-            <Route path="/explore" />
-            <Route path="/bookmarks" />
+            <Route path="/explore" element={<Explore />}/>
+            <Route path="/bookmarks" element={<Bookmarks />}/>
             <Route path="/:user" />
           </Routes>
           
