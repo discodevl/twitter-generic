@@ -14,7 +14,7 @@ function Feed() {
     <div className={styles["container-feed"]}>
       <Header />
       <AddPost />
-      {data?.map(tweet => <SinglePost key={tweet.id} tweet={{ id: tweet.id, userID: tweet.userID, content: tweet.content, likes: tweet.likes, comments: tweet.comments}} />)}
+      {data?.map(tweet => <SinglePost key={tweet.id} tweet={{ id: tweet.id, userID: tweet.userID, content: tweet.content, likes: tweet.likes, comments: tweet.comments, creationDate: tweet.creationDate}} />)}
     </div>
   );
 }

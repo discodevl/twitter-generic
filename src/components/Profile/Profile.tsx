@@ -2,9 +2,24 @@ import { FiArrowLeft, FiCalendar } from "react-icons/fi";
 import styles from "./Profile.module.css";
 import { Link } from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
-// import SinglePost from "../Feed/SinglePost";
+import { useQuery } from "@tanstack/react-query";
+import useGetUserID from "../../hooks/useGetUserID";
+import { getTweetsByUser, getUserByID } from "../../util/api";
+import SinglePost from "../Feed/SinglePost";
 
 function Profile() {
+  const { userID } = useGetUserID();
+
+  const { data } = useQuery({
+    queryKey: ["userTweets", userID],
+    queryFn: () => getTweetsByUser(userID),
+  });
+
+  const userQ = useQuery({
+    queryKey: ["user", userID],
+    queryFn: () => getUserByID(userID),
+  })
+
   return (
     <div className={styles["container-profile"]}>
       <div className={styles["profile-header"]}>
@@ -14,7 +29,7 @@ function Profile() {
           </div>
         </Link>
         <div className={styles["labels-wrap"]}>
-          <span className={styles["span-name"]}>userName</span>
+          <span className={styles["span-name"]}>{userQ?.data?.name}</span>
           <span className={styles["span-tag"]}>120 posts</span>
         </div>
       </div>
@@ -22,7 +37,7 @@ function Profile() {
         className={styles["banner-user"]}
         style={{
           backgroundImage:
-            "url(https://icdn-1.motor1.com/images/mgl/Mq2GY/s1/top-10-tuned-cars-of-2012.jpg)",
+            `url(${userQ?.data?.imgBannerURL})`,
         }}
       ></div>
       <div className={styles["profile-info"]}>
@@ -35,22 +50,22 @@ function Profile() {
               position: "relative",
               top: "-70px",
             }}
-            imgURL="https://noticiasdatv.uol.com.br/media/_versions/artigos_2021/luva-de-pedreiro-abandona-carreira-foto-reproducao-instagram_fixed_large.jpg"
+            imgURL={userQ?.data?.imgProfileURL}
           />
           <button className={styles["btn-edit-profile"]}>Edit profile</button>
         </div>
-        <span className={styles["span-name"]}>userName</span>
-        <span className={styles["span-tag"]}>@userName</span>
+        <span className={styles["span-name"]}>{userQ?.data?.name}</span>
+        <span className={styles["span-tag"]}>{userQ?.data?.userTag}</span>
         <div className={styles["date-section"]}>
           <FiCalendar color="#71767b" />
           <span className={styles["span-tag"]}>Joined April 2020</span>
         </div>
         <div className={styles["follow-section"]}>
           <span className={styles["span-tag"]}>
-            <b style={{ color: "white" }}>10</b> Following
+            <b style={{ color: "white" }}>{userQ?.data?.following.length}</b> Following
           </span>
           <span className={styles["span-tag"]}>
-            <b style={{ color: "white" }}>10</b> Followers
+            <b style={{ color: "white" }}>{userQ?.data?.followers.length}</b> Followers
           </span>
         </div>
         <div className={styles["opts"]}>
@@ -80,8 +95,9 @@ function Profile() {
         </div>
       </div>
       <div className={styles["posts-wrap"]}>
-        {/* <SinglePost tweet={{ id: '1', userID: "asas", content: "dsds", likes: 12 }} /> */}
-        
+        {data?.map((tweet) => (
+          <SinglePost key={tweet.id} tweet={tweet} />
+        ))}
       </div>
     </div>
   );

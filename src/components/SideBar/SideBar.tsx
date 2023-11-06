@@ -9,9 +9,18 @@ import {
 import {useNavigate} from 'react-router-dom';
 import styles from "./SideBar.module.css";
 import Avatar from "../Avatar/Avatar";
+import useGetUserID from "../../hooks/useGetUserID";
+import { useQuery } from "@tanstack/react-query";
+import { getUserByID } from "../../util/api";
 
 function SideBar() {
   const navigate = useNavigate();
+  const {userID} = useGetUserID();
+
+  const {data} = useQuery({
+    queryKey: ["user", userID],
+    queryFn: () => getUserByID(userID),
+  })
 
   return (
     <nav className={[styles["container-nav"], ""].join(' ')}>
@@ -40,7 +49,7 @@ function SideBar() {
         <span className={styles["nav-span"]}>Bookmarks</span>
       </div>
 
-      <div className={styles["btn-wrap"]} onClick={() => navigate('/userID')}>
+      <div className={styles["btn-wrap"]} onClick={() => navigate(`/${data?.userTag}`)}>
         <div className={styles["ico-wrap"]}>
           <FiUser size="25px" />
         </div>

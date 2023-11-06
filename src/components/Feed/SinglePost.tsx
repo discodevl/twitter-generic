@@ -9,13 +9,19 @@ import {
 import { TweetType } from "../../model/interfaces";
 import Avatar from "../Avatar/Avatar";
 import styles from "./SinglePost.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getUserByID } from "../../util/api";
 
 type SinglePostProps = {
   tweet: TweetType;
 };
 
 function SinglePost({ tweet }: SinglePostProps) {
+  const { data } = useQuery({
+    queryKey: ["user", tweet.userID],
+    queryFn: () => getUserByID(tweet.userID),
+  });
   const [hoverIco, setHoverIco] = useState(false);
   const [hover, setHover] = useState({
     comment: false,
@@ -24,18 +30,27 @@ function SinglePost({ tweet }: SinglePostProps) {
     bookmark: false,
     download: false,
   });
+  // const [creationDate, setCreationDate] = useState("");
+
+  useEffect(() => {
+    //to do
+    // const date = new Date(tweet.creationDate);
+    // const diff = Math.abs(date.getTime() - new Date().getTime());
+    // const res = new Date(diff)
+    // console.log(res);
+  }, [tweet?.creationDate]);
 
   return (
     <div className={styles["container-post"]}>
       <div className={styles["ico-avatar"]}>
-        <Avatar hover imgURL="https://noticiasdatv.uol.com.br/media/_versions/artigos_2021/luva-de-pedreiro-abandona-carreira-foto-reproducao-instagram_fixed_large.jpg" />
+        <Avatar hover imgURL={data?.imgProfileURL} />
       </div>
       <div className={styles["content-wrap"]}>
         <div className={styles["author-info"]}>
           <div className={styles["naming-info"]}>
-            <span className={styles["user-name"]}>userName</span>
-            <span className={styles["user-tag"]}>@userName ·</span>
-            <span className={styles["user-tag"]}>10m</span>
+            <span className={styles["user-name"]}>{data?.name}</span>
+            <span className={styles["user-tag"]}>{data?.userTag} ·</span>
+            <span className={styles["user-tag"]}>20m</span>
           </div>
           <div
             className={styles["ico-wrap"]}
@@ -53,22 +68,46 @@ function SinglePost({ tweet }: SinglePostProps) {
         </div>
         <div className={styles["panel"]}>
           <div className={styles["opt-wrap"]}>
-            <div className={styles["ico"]} onMouseEnter={() => setHover((prev) => ({ ...prev, comment: true }))}
+            <div
+              className={styles["ico"]}
+              onMouseEnter={() =>
+                setHover((prev) => ({ ...prev, comment: true }))
+              }
               onMouseLeave={() =>
                 setHover((prev) => ({ ...prev, comment: false }))
-              }>
-              <FiMessageCircle size="18px" color={hover.comment ? "rgb(29, 156, 240)" : "#2f3336"} />
+              }
+            >
+              <FiMessageCircle
+                size="18px"
+                color={hover.comment ? "rgb(29, 156, 240)" : "#2f3336"}
+              />
             </div>
-            <span className={styles["counter"]} style={{ color: hover.comment && "rgb(25, 140, 216)" }}>{tweet.comments.length}</span>
+            <span
+              className={styles["counter"]}
+              style={{ color: hover.comment && "rgb(25, 140, 216)" }}
+            >
+              {tweet.comments.length}
+            </span>
           </div>
           <div className={styles["opt-wrap"]}>
-            <div className={styles["ico-like"]} onMouseEnter={() => setHover((prev) => ({ ...prev, like: true }))}
+            <div
+              className={styles["ico-like"]}
+              onMouseEnter={() => setHover((prev) => ({ ...prev, like: true }))}
               onMouseLeave={() =>
                 setHover((prev) => ({ ...prev, like: false }))
-              }>
-              <FiHeart size="18px" color={hover.like ? "rgb(210,20,108)" : "#2f3336"} />
+              }
+            >
+              <FiHeart
+                size="18px"
+                color={hover.like ? "rgb(210,20,108)" : "#2f3336"}
+              />
             </div>
-            <span className={styles["counter"]} style={{ color: hover.like && "rgb(210,20,108)" }}>{tweet.likes}</span>
+            <span
+              className={styles["counter"]}
+              style={{ color: hover.like && "rgb(210,20,108)" }}
+            >
+              {tweet.likes}
+            </span>
           </div>
           <div className={styles["opt-wrap"]}>
             <div
