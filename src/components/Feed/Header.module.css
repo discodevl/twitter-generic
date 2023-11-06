@@ -13,7 +13,7 @@ header {
   -webkit-backdrop-filter: blur(9px);
 }
 
-.header-opt{
+.header-opt {
   width: 45%;
   display: flex;
   align-items: center;
@@ -22,11 +22,11 @@ header {
   background-color: none;
 }
 
-.header-opt:hover{
+.header-opt:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.config{
+.config {
   width: 10%;
   display: flex;
   justify-content: center;
@@ -34,7 +34,7 @@ header {
   background-color: none;
 }
 
-.ico-cfg-wrap{
+.ico-cfg-wrap {
   border-radius: 30px;
   display: flex;
   justify-content: center;
@@ -43,11 +43,11 @@ header {
   height: 35px;
   cursor: pointer;
 }
-.ico-cfg-wrap:hover{
+.ico-cfg-wrap:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.label-wrap{
+.label-wrap {
   width: fit-content;
   height: 100%;
   display: flex;

@@ -5,6 +5,7 @@ import SideBar from "./components/SideBar/SideBar";
 import Trends from "./components/Trends/Trends";
 import Explore from "./components/Explore/Explore";
 import Bookmarks from "./components/Bookmarks/Bookmarks";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   const {pathname} = useLocation();
@@ -19,7 +20,7 @@ function App() {
             <Route path="/" element={<Feed />}/>
             <Route path="/explore" element={<Explore />}/>
             <Route path="/bookmarks" element={<Bookmarks />}/>
-            <Route path="/:user" />
+            <Route path="/:user" element={<Profile />}/>
           </Routes>
           
         </Col>

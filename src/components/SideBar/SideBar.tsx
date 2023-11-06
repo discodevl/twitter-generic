@@ -40,7 +40,7 @@ function SideBar() {
         <span className={styles["nav-span"]}>Bookmarks</span>
       </div>
 
-      <div className={styles["btn-wrap"]} onClick={() => navigate('/:user')}>
+      <div className={styles["btn-wrap"]} onClick={() => navigate('/userID')}>
         <div className={styles["ico-wrap"]}>
           <FiUser size="25px" />
         </div>
