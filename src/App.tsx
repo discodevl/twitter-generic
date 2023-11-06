@@ -6,9 +6,18 @@ import Trends from "./components/Trends/Trends";
 import Explore from "./components/Explore/Explore";
 import Bookmarks from "./components/Bookmarks/Bookmarks";
 import Profile from "./components/Profile/Profile";
+import { useEffect } from "react";
+import useGetUserID from "./hooks/useGetUserID";
 
 function App() {
   const {pathname} = useLocation();
+  const {userID} = useGetUserID();
+
+  useEffect(() => {
+    if(userID) return;
+    localStorage.setItem("userID", "main_user")
+  }, []);
+
   return (
     <Container>
       <Row>
