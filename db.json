@@ -1,0 +1,35 @@
+{
+  "tweets": [
+    {
+      "id": "1",
+      "userID": "main_user",
+      "content": "hahahaha",
+      "imageURL": "",
+      "comments": [],
+      "likes": 0
+    },
+    {
+      "id": "2",
+      "userID": "main_user",
+      "content": "eussbaygf",
+      "imageURL": "https://pbs.twimg.com/media/F-QQXfWWAAAuHky?format=jpg&name=large",
+      "comments": [],
+      "likes": 0
+    }
+  ],
+
+  "users": [
+    {
+      "id": "main_user",
+      "name": "Luva",
+      "userTag": "@oTalDoReceba",
+      "password": "1234",
+      "imgProfileURL": "https://noticiasdatv.uol.com.br/media/_versions/artigos_2021/luva-de-pedreiro-abandona-carreira-foto-reproducao-instagram_fixed_large.jpg",
+      "imgBannerURL": "https://icdn-1.motor1.com/images/mgl/Mq2GY/s1/top-10-tuned-cars-of-2012.jpg",
+      "creationDate": "2023-11-06T15:49:53.629Z",
+      "following": [],
+      "followers": [],
+      "posts": []
+    }
+  ]
+}

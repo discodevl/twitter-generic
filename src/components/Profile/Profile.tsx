@@ -2,7 +2,7 @@ import { FiArrowLeft, FiCalendar } from "react-icons/fi";
 import styles from "./Profile.module.css";
 import { Link } from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
-import SinglePost from "../Feed/SinglePost";
+// import SinglePost from "../Feed/SinglePost";
 
 function Profile() {
   return (
@@ -80,15 +80,8 @@ function Profile() {
         </div>
       </div>
       <div className={styles["posts-wrap"]}>
-        <SinglePost tweet={{ authorID: "asas", content: "dsds", likes: 12 }} />
-        <SinglePost tweet={{ authorID: "asas", content: "dsds", likes: 12 }} />
-        <SinglePost tweet={{ authorID: "asas", content: "dsds", likes: 12 }} />
-        <SinglePost tweet={{ authorID: "asas", content: "dsds", likes: 12 }} />
-        <SinglePost tweet={{ authorID: "asas", content: "dsds", likes: 12 }} />
-        <SinglePost tweet={{ authorID: "asas", content: "dsds", likes: 12 }} />
-        <SinglePost tweet={{ authorID: "asas", content: "dsds", likes: 12 }} />
-        <SinglePost tweet={{ authorID: "asas", content: "dsds", likes: 12 }} />
-        <SinglePost tweet={{ authorID: "asas", content: "dsds", likes: 12 }} />
+        {/* <SinglePost tweet={{ id: '1', userID: "asas", content: "dsds", likes: 12 }} /> */}
+        
       </div>
     </div>
   );

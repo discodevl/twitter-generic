@@ -1,6 +1,7 @@
 import { FiSettings } from "react-icons/fi";
 import SearchBar from "../Trends/SearchBar";
 import styles from "./Explore.module.css";
+// import SinglePost from "../Feed/SinglePost";
 
 function Explore() {
   return (
@@ -23,13 +24,7 @@ function Explore() {
       <div className={styles["divider"]}></div>
 
       <div className={styles["content-search"]}>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo deserunt laudantium excepturi delectus magni ipsa necessitatibus incidunt, itaque quos nulla numquam aut provident esse animi facere distinctio officia, ratione quibusdam!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo deserunt laudantium excepturi delectus magni ipsa necessitatibus incidunt, itaque quos nulla numquam aut provident esse animi facere distinctio officia, ratione quibusdam!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo deserunt laudantium excepturi delectus magni ipsa necessitatibus incidunt, itaque quos nulla numquam aut provident esse animi facere distinctio officia, ratione quibusdam!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo deserunt laudantium excepturi delectus magni ipsa necessitatibus incidunt, itaque quos nulla numquam aut provident esse animi facere distinctio officia, ratione quibusdam!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo deserunt laudantium excepturi delectus magni ipsa necessitatibus incidunt, itaque quos nulla numquam aut provident esse animi facere distinctio officia, ratione quibusdam!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo deserunt laudantium excepturi delectus magni ipsa necessitatibus incidunt, itaque quos nulla numquam aut provident esse animi facere distinctio officia, ratione quibusdam!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo deserunt laudantium excepturi delectus magni ipsa necessitatibus incidunt, itaque quos nulla numquam aut provident esse animi facere distinctio officia, ratione quibusdam!</p>
+        {/* <SinglePost tweet={{ id: '1', userID: "as", content: "sad", likes: 2 }} /> */}
       </div>
     </div>
   );

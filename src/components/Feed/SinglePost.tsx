@@ -59,7 +59,7 @@ function SinglePost({ tweet }: SinglePostProps) {
               }>
               <FiMessageCircle size="18px" color={hover.comment ? "rgb(29, 156, 240)" : "#2f3336"} />
             </div>
-            <span className={styles["counter"]} style={{ color: hover.comment && "rgb(25, 140, 216)" }}>12</span>
+            <span className={styles["counter"]} style={{ color: hover.comment && "rgb(25, 140, 216)" }}>{tweet.comments.length}</span>
           </div>
           <div className={styles["opt-wrap"]}>
             <div className={styles["ico-like"]} onMouseEnter={() => setHover((prev) => ({ ...prev, like: true }))}
@@ -68,7 +68,7 @@ function SinglePost({ tweet }: SinglePostProps) {
               }>
               <FiHeart size="18px" color={hover.like ? "rgb(210,20,108)" : "#2f3336"} />
             </div>
-            <span className={styles["counter"]} style={{ color: hover.like && "rgb(210,20,108)" }}>12</span>
+            <span className={styles["counter"]} style={{ color: hover.like && "rgb(210,20,108)" }}>{tweet.likes}</span>
           </div>
           <div className={styles["opt-wrap"]}>
             <div
@@ -87,7 +87,7 @@ function SinglePost({ tweet }: SinglePostProps) {
               className={styles["counter"]}
               style={{ color: hover.view && "rgb(25, 140, 216)" }}
             >
-              12
+              {Math.ceil(Math.random() * 5)}
             </span>
           </div>
           <div className={styles["opt-wrap"]}>
