@@ -49,7 +49,7 @@ function SideBar() {
         <span className={styles["nav-span"]}>Bookmarks</span>
       </div>
 
-      <div className={styles["btn-wrap"]} onClick={() => navigate(`/${data?.userTag}`)}>
+      <div className={styles["btn-wrap"]} onClick={() => navigate(`/${data?.id}`)}>
         <div className={styles["ico-wrap"]}>
           <FiUser size="25px" />
         </div>
@@ -62,7 +62,7 @@ function SideBar() {
         <div className={styles["user-first-col"]}>
           <div className={styles["ico-wrap"]}>
             {/* <FiUser size="25px" /> */}
-            <Avatar imgURL="https://noticiasdatv.uol.com.br/media/_versions/artigos_2021/luva-de-pedreiro-abandona-carreira-foto-reproducao-instagram_fixed_large.jpg"/>
+            <Avatar tag={data?.id}/>
           </div>
           <div className={styles["user-info-wrap"]}>
             <span className={styles["nav-span"]}>userName</span>

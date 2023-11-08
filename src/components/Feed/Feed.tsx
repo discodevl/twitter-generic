@@ -8,8 +8,6 @@ import { getAllTweets } from "../../util/api";
 function Feed() {
   const {data} = useQuery({ queryKey: ['tweets'], queryFn: getAllTweets });
 
-  console.log(data);
-  
   return (
     <div className={styles["container-feed"]}>
       <Header />

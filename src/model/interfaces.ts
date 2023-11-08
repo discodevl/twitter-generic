@@ -16,7 +16,7 @@ export type TweetType = {
 export type UserType = {
     id: string;
     name: string;
-    userTag: string;
+    bio: string
     imgProfileURL: string;
     imgBannerURL?: string;
     creationDate: Date; //new Date().toISOString()

@@ -16,3 +16,7 @@ export async function getUserByID(id: string): Promise<UserType> {
   const res = await axios.get(`${BASE_URL}users/${id}`);
   return res.data;
 }
+export async function getTweetByID(id: string): Promise<TweetType> {
+  const res = await axios.get(`${BASE_URL}tweets/${id}`);
+  return res.data;
+}

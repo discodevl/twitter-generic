@@ -43,6 +43,7 @@ function Profile() {
       <div className={styles["profile-info"]}>
         <div className={styles["avatar-row"]}>
           <Avatar
+          tag={userQ?.data?.id}
             style={{
               width: "133px",
               height: "133px",
@@ -50,12 +51,11 @@ function Profile() {
               position: "relative",
               top: "-70px",
             }}
-            imgURL={userQ?.data?.imgProfileURL}
           />
           <button className={styles["btn-edit-profile"]}>Edit profile</button>
         </div>
         <span className={styles["span-name"]}>{userQ?.data?.name}</span>
-        <span className={styles["span-tag"]}>{userQ?.data?.userTag}</span>
+        <span className={styles["span-tag"]}>{userQ?.data?.id}</span>
         <div className={styles["date-section"]}>
           <FiCalendar color="#71767b" />
           <span className={styles["span-tag"]}>Joined April 2020</span>

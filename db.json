@@ -2,7 +2,7 @@
   "tweets": [
     {
       "id": "1",
-      "userID": "main_user",
+      "userID": "@oTalDoReceba",
       "content": "hahahaha",
       "imageURL": "",
       "comments": [],
@@ -11,7 +11,7 @@
     },
     {
       "id": "2",
-      "userID": "main_user",
+      "userID": "@oTalDoReceba",
       "content": "eussbaygf",
       "imageURL": "https://pbs.twimg.com/media/F-V-pDEWwAARvyl?format=jpg&name=360x360",
       "comments": [],
@@ -20,7 +20,7 @@
     },
     {
       "id": "3",
-      "userID": "cerrote7",
+      "userID": "@cerrote7",
       "content": "sssiiiiiiiiiiiiimmm",
       "imageURL": "",
       "comments": [],
@@ -31,9 +31,9 @@
 
   "users": [
     {
-      "id": "main_user",
+      "id": "@oTalDoReceba",
       "name": "Luva",
-      "userTag": "@oTalDoReceba",
+      "bio": "O cara da luva de predero",
       "password": "1234",
       "imgProfileURL": "https://noticiasdatv.uol.com.br/media/_versions/artigos_2021/luva-de-pedreiro-abandona-carreira-foto-reproducao-instagram_fixed_large.jpg",
       "imgBannerURL": "https://icdn-1.motor1.com/images/mgl/Mq2GY/s1/top-10-tuned-cars-of-2012.jpg",
@@ -44,9 +44,9 @@
       "bookmarks": []
     },
     {
-      "id": "cerrote7",
+      "id": "@cerrote7",
       "name": "CR7",
-      "userTag": "@cerrote",
+      "bio": "Milior do mundo",
       "password": "1234",
       "imgProfileURL": "https://www.newsbox.pk/wp-content/uploads/2020/03/cristiano-ronaldo.jpg",
       "imgBannerURL": "https://eldiariony.com/wp-content/uploads/sites/2/2020/06/hoteles-cristiano-ronaldo-pestanacr7.jpg?quality=80&strip=all",

@@ -37,13 +37,13 @@ function SinglePost({ tweet }: SinglePostProps) {
   return (
     <div className={styles["container-post"]} onClick={() => navigate(`/status/${tweet.id}`)}>
       <div className={styles["ico-avatar"]}>
-        <Avatar hover imgURL={data?.imgProfileURL} />
+        <Avatar hover tag={data?.id}/>
       </div>
       <div className={styles["content-wrap"]}>
         <div className={styles["author-info"]}>
           <div className={styles["naming-info"]}>
-            <span className={styles["user-name"]}>{data?.name}</span>
-            <span className={styles["user-tag"]}>{data?.userTag} ·</span>
+            <span className={styles["user-name"]} onClick={() => navigate(data?.id)} style={{zIndex:3}}>{data?.name}</span>
+            <span className={styles["user-tag"]}>{data?.id} ·</span>
             <span className={styles["user-tag"]}>20m</span>
           </div>
           <div

@@ -4,16 +4,19 @@ import { FiImage } from "react-icons/fi";
 import { ImEarth } from "react-icons/im";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
 import Avatar from "../Avatar/Avatar";
+import useGetUserID from "../../hooks/useGetUserID";
 
 function AddPost() {
   const [text, setText] = useState("");
   const [isTxtAreaFocused, setIsTxtAreaFocused] = useState(false);
 
+  const {userID} = useGetUserID();
+
   return (
     <div className={styles["container-post"]}>
       <div className={styles["avatar-wrap"]}>
         {/* <FiUser size="35px" /> */}
-        <Avatar imgURL="https://noticiasdatv.uol.com.br/media/_versions/artigos_2021/luva-de-pedreiro-abandona-carreira-foto-reproducao-instagram_fixed_large.jpg"/>
+        <Avatar tag={userID} />
       </div>
 
       <div className={styles["post-area"]}>
