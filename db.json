@@ -13,7 +13,7 @@
       "id": "2",
       "userID": "main_user",
       "content": "eussbaygf",
-      "imageURL": "https://pbs.twimg.com/media/F-QQXfWWAAAuHky?format=jpg&name=large",
+      "imageURL": "https://pbs.twimg.com/media/F-V-pDEWwAARvyl?format=jpg&name=360x360",
       "comments": [],
       "likes": 0, 
       "creationDate":"2023-11-06T15:49:53.629Z"
@@ -40,7 +40,8 @@
       "creationDate": "2023-11-06T15:49:53.629Z",
       "following": [],
       "followers": [],
-      "posts": []
+      "posts": [],
+      "bookmarks": []
     },
     {
       "id": "cerrote7",
@@ -52,7 +53,8 @@
       "creationDate": "2023-11-06T20:59:37.480Z",
       "following": [],
       "followers": [],
-      "posts": []
+      "posts": [],
+      "bookmarks": []
     }
   ]
 }

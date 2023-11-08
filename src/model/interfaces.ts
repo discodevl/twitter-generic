@@ -23,4 +23,5 @@ export type UserType = {
     following: string[]; //user id arr
     followers: string[]; //user id arr
     posts: TweetType[];
+    bookmarks: string[]; //posts id arr
 }

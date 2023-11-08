@@ -9,9 +9,10 @@ import {
 import { TweetType } from "../../model/interfaces";
 import Avatar from "../Avatar/Avatar";
 import styles from "./SinglePost.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getUserByID } from "../../util/api";
+import { useNavigate } from "react-router-dom";
 
 type SinglePostProps = {
   tweet: TweetType;
@@ -30,18 +31,11 @@ function SinglePost({ tweet }: SinglePostProps) {
     bookmark: false,
     download: false,
   });
-  // const [creationDate, setCreationDate] = useState("");
 
-  useEffect(() => {
-    //to do
-    // const date = new Date(tweet.creationDate);
-    // const diff = Math.abs(date.getTime() - new Date().getTime());
-    // const res = new Date(diff)
-    // console.log(res);
-  }, [tweet?.creationDate]);
+  const navigate = useNavigate();
 
   return (
-    <div className={styles["container-post"]}>
+    <div className={styles["container-post"]} onClick={() => navigate(`/status/${tweet.id}`)}>
       <div className={styles["ico-avatar"]}>
         <Avatar hover imgURL={data?.imgProfileURL} />
       </div>
@@ -66,6 +60,7 @@ function SinglePost({ tweet }: SinglePostProps) {
         <div className={styles["content"]}>
           <span>{tweet.content}</span>
         </div>
+        {tweet.imageURL && <img className={styles["img-tweet"]} src={tweet.imageURL}/>}
         <div className={styles["panel"]}>
           <div className={styles["opt-wrap"]}>
             <div

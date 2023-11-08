@@ -8,6 +8,7 @@ import Bookmarks from "./components/Bookmarks/Bookmarks";
 import Profile from "./components/Profile/Profile";
 import { useEffect } from "react";
 import useGetUserID from "./hooks/useGetUserID";
+import PostPage from "./page/SinglePost/PostPage";
 
 function App() {
   const {pathname} = useLocation();
@@ -30,6 +31,7 @@ function App() {
             <Route path="/explore" element={<Explore />}/>
             <Route path="/bookmarks" element={<Bookmarks />}/>
             <Route path="/:user" element={<Profile />}/>
+            <Route path="/status/:postID" element={<PostPage />}/>
           </Routes>
           
         </Col>
