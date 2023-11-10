@@ -7,7 +7,7 @@
       "imageURL": "",
       "comments": [],
       "likes": 0,
-      "creationDate":"2023-11-06T15:49:53.629Z"
+      "creationDate": "2023-11-06T15:49:53.629Z"
     },
     {
       "id": "2",
@@ -15,17 +15,23 @@
       "content": "eussbaygf",
       "imageURL": "https://pbs.twimg.com/media/F-V-pDEWwAARvyl?format=jpg&name=360x360",
       "comments": [],
-      "likes": 0, 
-      "creationDate":"2023-11-06T15:49:53.629Z"
+      "likes": 0,
+      "creationDate": "2023-11-06T15:49:53.629Z"
     },
     {
       "id": "3",
       "userID": "@cerrote7",
       "content": "sssiiiiiiiiiiiiimmm",
       "imageURL": "",
-      "comments": [],
+      "comments": [
+        {
+          "userID": "@oTalDoReceba",
+          "comment": "pika",
+          "creationDate": "2023-11-06T15:49:53.629Z"
+        }
+      ],
       "likes": 1,
-      "creationDate":"2023-11-06T15:49:53.629Z"
+      "creationDate": "2023-11-06T15:49:53.629Z"
     }
   ],
 

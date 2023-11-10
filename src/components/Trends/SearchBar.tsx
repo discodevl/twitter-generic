@@ -8,9 +8,9 @@ type SearchBarProps = {
 }
 
 function SearchBar({style}: SearchBarProps) {
-  const ref = useRef<HTMLInputElement>(null);
   const [text, setText] = useState("");
   const [focusInput, setFocusInput] = useState(false);
+  const ref = useRef<HTMLInputElement>(null);
 
   useClickOutside(ref, () => {
     setFocusInput(false);

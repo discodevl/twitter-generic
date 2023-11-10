@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { getUserByID } from "../../util/api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TweetType } from "../../model/interfaces";
 import styles from "./SinglePostDetailed.module.css";
 import Avatar from "../Avatar/Avatar";
@@ -9,19 +9,27 @@ import {
   FiBookmark,
   FiDownload,
   FiHeart,
+  FiImage,
   FiMessageCircle,
   FiMoreHorizontal,
 } from "react-icons/fi";
+import { useClickOutside } from "@react-hookz/web";
+import useGetUserID from "../../hooks/useGetUserID";
+import { HiOutlineEmojiHappy } from "react-icons/hi";
+import Reply from "../Reply/Reply";
 
 type SinglePostDetailedProps = {
   tweet: TweetType;
 };
 
 function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
+  const navigate = useNavigate();
+  console.log(tweet);
   const { data } = useQuery({
     queryKey: ["user", tweet.userID],
-    queryFn: () => getUserByID(tweet.userID),
+    queryFn: () => getUserByID(tweet?.userID),
   });
+  const { userID } = useGetUserID();
   const [hoverIco, setHoverIco] = useState(false);
   const [hover, setHover] = useState({
     comment: false,
@@ -30,8 +38,13 @@ function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
     bookmark: false,
     download: false,
   });
+  const [replyText, setReplyText] = useState("");
+  const [isTxtAreaFocused, setIsTxtAreaFocused] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-  const navigate = useNavigate();
+  useClickOutside(ref, () => {
+    setIsTxtAreaFocused(false);
+  });
 
   const datePost = useMemo(() => {
     return new Date(tweet.creationDate);
@@ -45,7 +58,7 @@ function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
       >
         <div className={styles["ico-avatar"]}>
           <div className={styles["user-header"]}>
-            <Avatar hover tag={data?.id}/>
+            <Avatar hover tag={data?.id} />
             <div className={styles["naming-info"]}>
               <span className={styles["user-name"]}>{data?.name}</span>
               <span className={styles["user-tag"]}>{data?.id}</span>
@@ -151,11 +164,49 @@ function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
               </div>
             </div>
           </div>
-          <div className={styles["reply-container"]}>
-            <Avatar tag={data?.id}/>
-            <textarea placeholder="receba"/>
+          <div ref={ref} className={styles["reply-wrap"]}>
+            {isTxtAreaFocused && (
+              <span className={styles["user-tag"]}>
+                Replying to <Link to={`/${data?.id}`}>{data?.id}</Link>
+              </span>
+            )}
+            <div className={styles["reply-container"]}>
+              <Avatar tag={userID} />
+              <div className={styles["text-wrap"]}>
+                <textarea
+                  placeholder="Post you reply"
+                  maxLength={280}
+                  value={replyText}
+                  onChange={(e) => setReplyText(e.target.value)}
+                  rows={Math.ceil(replyText.length / 65) || 1}
+                  onFocus={() => setIsTxtAreaFocused(true)}
+                />
+                {isTxtAreaFocused && (
+                  <div className={styles["text-addons"]}>
+                    <div className={styles["ico-txts"]}>
+                      <div className={styles["ico-wrap"]}>
+                        <FiImage size="15px" color="#1d9bf0" />
+                      </div>
+                      <div className={styles["ico-wrap"]}>
+                        <HiOutlineEmojiHappy size="15px" color="#1d9bf0" />
+                      </div>
+                    </div>
+                    <div>
+                      <button className={styles["post-btn"]} disabled={!replyText}>
+                        Post
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
+          
         </div>
+        
+      </div>
+      <div className={styles["replys-wrap"]}>
+        {tweet?.comments.map(reply => <Reply key={tweet.id} reply={reply}/>)}
       </div>
     </div>
   );
