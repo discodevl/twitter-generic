@@ -1,14 +1,13 @@
 import { FiArrowLeft, FiCalendar } from "react-icons/fi";
 import styles from "./Profile.module.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
 import { useQuery } from "@tanstack/react-query";
-import useGetUserID from "../../hooks/useGetUserID";
 import { getTweetsByUser, getUserByID } from "../../util/api";
 import SinglePost from "../Feed/SinglePost";
 
 function Profile() {
-  const { userID } = useGetUserID();
+  const {userID} = useParams();
 
   const { data } = useQuery({
     queryKey: ["userTweets", userID],

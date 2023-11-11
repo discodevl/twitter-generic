@@ -9,7 +9,7 @@ import {
 import { TweetType } from "../../model/interfaces";
 import Avatar from "../Avatar/Avatar";
 import styles from "./SinglePost.module.css";
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getUserByID } from "../../util/api";
 import { useNavigate } from "react-router-dom";
@@ -34,8 +34,15 @@ function SinglePost({ tweet }: SinglePostProps) {
 
   const navigate = useNavigate();
 
+  function postPage(e: SyntheticEvent) {
+    e.stopPropagation();
+    navigate(`/status/${tweet.id}`)
+  }
+
   return (
-    <div className={styles["container-post"]} onClick={() => navigate(`/status/${tweet.id}`)}>
+    <div className={styles["container-post"]}
+     onClick={postPage}
+     >
       <div className={styles["ico-avatar"]}>
         <Avatar hover tag={data?.id}/>
       </div>

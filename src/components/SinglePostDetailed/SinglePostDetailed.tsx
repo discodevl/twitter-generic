@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useMemo, useRef, useState } from "react";
 import { getUserByID } from "../../util/api";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { TweetType } from "../../model/interfaces";
 import styles from "./SinglePostDetailed.module.css";
 import Avatar from "../Avatar/Avatar";
@@ -23,7 +23,6 @@ type SinglePostDetailedProps = {
 };
 
 function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
-  const navigate = useNavigate();
   console.log(tweet);
   const { data } = useQuery({
     queryKey: ["user", tweet.userID],
@@ -54,13 +53,17 @@ function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
     <div>
       <div
         className={styles["container-post"]}
-        onClick={() => navigate(`/status/${tweet.id}`)}
+        // onClick={() => navigate(`/status/${tweet.id}`)}
       >
         <div className={styles["ico-avatar"]}>
           <div className={styles["user-header"]}>
-            <Avatar hover tag={data?.id} />
+            <Link to={`../${data?.id}`}>
+              <Avatar hover tag={data?.id} />
+            </Link>
             <div className={styles["naming-info"]}>
-              <span className={styles["user-name"]}>{data?.name}</span>
+              <Link to={`../${data?.id}`} style={{textDecoration: 'none', color: 'unset'}}>
+                <span className={styles["user-name"]}>{data?.name}</span>
+              </Link>
               <span className={styles["user-tag"]}>{data?.id}</span>
             </div>
           </div>
@@ -192,7 +195,10 @@ function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
                       </div>
                     </div>
                     <div>
-                      <button className={styles["post-btn"]} disabled={!replyText}>
+                      <button
+                        className={styles["post-btn"]}
+                        disabled={!replyText}
+                      >
                         Post
                       </button>
                     </div>
@@ -201,12 +207,12 @@ function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
               </div>
             </div>
           </div>
-          
         </div>
-        
       </div>
       <div className={styles["replys-wrap"]}>
-        {tweet?.comments.map(reply => <Reply key={tweet.id} reply={reply}/>)}
+        {tweet?.comments.map((reply) => (
+          <Reply key={tweet.id} reply={reply} />
+        ))}
       </div>
     </div>
   );

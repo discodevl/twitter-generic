@@ -30,7 +30,7 @@ function App() {
             <Route path="/" element={<Feed />}/>
             <Route path="/explore" element={<Explore />}/>
             <Route path="/bookmarks" element={<Bookmarks />}/>
-            <Route path="/:user" element={<Profile />}/>
+            <Route path="/:userID" element={<Profile />}/>
             <Route path="/status/:postID" element={<PostPage />}/>
           </Routes>
           
