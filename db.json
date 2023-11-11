@@ -54,8 +54,18 @@
       "likes": 0,
       "bookmarks": 0,
       "creationDate": "2023-11-06T15:49:53.629Z"
+    },
+    {
+      "id": "6",
+      "userID": "@rsjovit",
+      "content": "partiu cair de boca na salsisha na casa do birobiro hehe",
+      "imageURL": "",
+      "replys": [],
+      "type": "tweet",
+      "likes": 0,
+      "bookmarks": 0,
+      "creationDate": "2023-11-06T15:49:53.629Z"
     }
-
   ],
 
   "users": [
@@ -87,7 +97,7 @@
     },
     {
       "id": "@rsjovit",
-      "name": "Baianao bota",
+      "name": "JOVIT space cowboy",
       "bio": "vou e dormir crl",
       "password": "1234",
       "imgProfileURL": "https://pbs.twimg.com/profile_images/1655410872565526528/dvSq-0to_400x400.jpg",

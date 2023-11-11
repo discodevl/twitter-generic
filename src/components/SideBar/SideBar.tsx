@@ -65,8 +65,8 @@ function SideBar() {
             <Avatar tag={data?.id}/>
           </div>
           <div className={styles["user-info-wrap"]}>
-            <span className={styles["nav-span"]}>userName</span>
-            <span className={styles["user-tag"]}>@username</span>
+            <span className={styles["nav-span"]}>{data?.name}</span>
+            <span className={styles["user-tag"]}>{data?.id}</span>
           </div>
         </div>
         <section className="dett-ico-wrap">

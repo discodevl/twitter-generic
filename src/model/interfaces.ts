@@ -6,7 +6,7 @@
 export type TweetType = {
     id: string;
     userID: string;
-    creationDate: Date; //new Date().toISOString()
+    creationDate: string; //new Date().toISOString()
     content: string;
     imageURL?: string;
     replys: string[]; //tweets id

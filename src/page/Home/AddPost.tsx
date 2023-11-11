@@ -5,17 +5,36 @@ import { ImEarth } from "react-icons/im";
 import Avatar from "../../components/Avatar/Avatar";
 import useGetUserID from "../../hooks/useGetUserID";
 import styles from "./AddPost.module.css";
+import { useMutation } from "@tanstack/react-query";
+import { postTweet } from "../../util/api";
+import { v4 as uuidv4 } from "uuid";
 
 function AddPost() {
   const [text, setText] = useState("");
   const [isTxtAreaFocused, setIsTxtAreaFocused] = useState(false);
 
+  const tweetMutation = useMutation({ mutationFn: postTweet });
+
   const { userID } = useGetUserID();
+
+  function createTweet() {
+    tweetMutation.mutate({
+      id: uuidv4(),
+      userID,
+      content: text,
+      imageURL: "",
+      replys: [],
+      type: "tweet",
+      likes: 0,
+      bookmarks: 0,
+      creationDate: new Date().toISOString(),
+    });
+    setText("");
+  }
 
   return (
     <div className={styles["container-post"]}>
       <div className={styles["avatar-wrap"]}>
-        {/* <FiUser size="35px" /> */}
         <Avatar tag={userID} />
       </div>
 
@@ -46,7 +65,11 @@ function AddPost() {
             </div>
           </div>
           <div>
-            <button className={styles["post-btn"]} disabled={!text}>
+            <button
+              className={styles["post-btn"]}
+              disabled={!text}
+              onClick={createTweet}
+            >
               Post
             </button>
           </div>
