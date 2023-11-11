@@ -1,5 +1,5 @@
 import { FiSettings } from "react-icons/fi";
-import SearchBar from "../Trends/SearchBar";
+import SearchBar from "../../components/Trends/SearchBar";
 import styles from "./Explore.module.css";
 // import SinglePost from "../Feed/SinglePost";
 

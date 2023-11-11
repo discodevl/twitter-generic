@@ -1,16 +1,16 @@
 import { useState } from "react";
-import styles from "./AddPost.module.css";
 import { FiImage } from "react-icons/fi";
-import { ImEarth } from "react-icons/im";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
-import Avatar from "../Avatar/Avatar";
+import { ImEarth } from "react-icons/im";
+import Avatar from "../../components/Avatar/Avatar";
 import useGetUserID from "../../hooks/useGetUserID";
+import styles from "./AddPost.module.css";
 
 function AddPost() {
   const [text, setText] = useState("");
   const [isTxtAreaFocused, setIsTxtAreaFocused] = useState(false);
 
-  const {userID} = useGetUserID();
+  const { userID } = useGetUserID();
 
   return (
     <div className={styles["container-post"]}>
@@ -29,10 +29,12 @@ function AddPost() {
           onFocus={() => setIsTxtAreaFocused(true)}
         />
 
-        {isTxtAreaFocused && <div className={styles["post-cfg"]}>
-          <ImEarth color="#1d9bf0" />
-          <span className={styles["span-cfg"]}>Everyone can reply</span>
-        </div>}
+        {isTxtAreaFocused && (
+          <div className={styles["post-cfg"]}>
+            <ImEarth color="#1d9bf0" />
+            <span className={styles["span-cfg"]}>Everyone can reply</span>
+          </div>
+        )}
 
         <div className={styles["text-addons"]}>
           <div className={styles["ico-txts"]}>
@@ -43,11 +45,12 @@ function AddPost() {
               <HiOutlineEmojiHappy size="15px" color="#1d9bf0" />
             </div>
           </div>
-          <div >
-            <button className={styles["post-btn"]} disabled={!text}>Post</button>
+          <div>
+            <button className={styles["post-btn"]} disabled={!text}>
+              Post
+            </button>
           </div>
         </div>
-
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
-import { FiArrowLeft, FiCalendar } from "react-icons/fi";
-import styles from "./Profile.module.css";
-import { Link, useParams } from "react-router-dom";
-import Avatar from "../Avatar/Avatar";
 import { useQuery } from "@tanstack/react-query";
+import { FiArrowLeft, FiCalendar } from "react-icons/fi";
+import { Link, useParams } from "react-router-dom";
+import Avatar from "../../components/Avatar/Avatar";
+import SinglePost from "../../components/SinglePost/SinglePost";
 import { getTweetsByUser, getUserByID } from "../../util/api";
-import SinglePost from "../Feed/SinglePost";
+import styles from "./Profile.module.css";
 
 function Profile() {
-  const {userID} = useParams();
+  const { userID } = useParams();
 
   const { data } = useQuery({
     queryKey: ["userTweets", userID],
@@ -17,7 +17,7 @@ function Profile() {
   const userQ = useQuery({
     queryKey: ["user", userID],
     queryFn: () => getUserByID(userID),
-  })
+  });
 
   return (
     <div className={styles["container-profile"]}>
@@ -35,14 +35,13 @@ function Profile() {
       <div
         className={styles["banner-user"]}
         style={{
-          backgroundImage:
-            `url(${userQ?.data?.imgBannerURL})`,
+          backgroundImage: `url(${userQ?.data?.imgBannerURL})`,
         }}
       ></div>
       <div className={styles["profile-info"]}>
         <div className={styles["avatar-row"]}>
           <Avatar
-          tag={userQ?.data?.id}
+            tag={userQ?.data?.id}
             style={{
               width: "133px",
               height: "133px",
@@ -61,10 +60,12 @@ function Profile() {
         </div>
         <div className={styles["follow-section"]}>
           <span className={styles["span-tag"]}>
-            <b style={{ color: "white" }}>{userQ?.data?.following.length}</b> Following
+            <b style={{ color: "white" }}>{userQ?.data?.following.length}</b>{" "}
+            Following
           </span>
           <span className={styles["span-tag"]}>
-            <b style={{ color: "white" }}>{userQ?.data?.followers.length}</b> Followers
+            <b style={{ color: "white" }}>{userQ?.data?.followers.length}</b>{" "}
+            Followers
           </span>
         </div>
         <div className={styles["opts"]}>
