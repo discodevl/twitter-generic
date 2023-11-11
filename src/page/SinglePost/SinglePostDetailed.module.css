@@ -228,3 +228,6 @@ textarea {
   background-color: rgba(29, 156, 240, 0.5);
   cursor: auto;
 }
+.replys-wrap{
+  /* margin-inline: -12px; */
+}

@@ -1,28 +1,25 @@
-import {
-  FiBarChart2,
-  FiBookmark,
-  FiDownload,
-  FiHeart,
-  FiMessageCircle,
-  FiMoreHorizontal,
-} from "react-icons/fi";
-import { TweetType } from "../../model/interfaces";
-import Avatar from "../Avatar/Avatar";
-import styles from "./SinglePost.module.css";
-import { SyntheticEvent, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getUserByID } from "../../util/api";
+import { SyntheticEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Avatar from "../../components/Avatar/Avatar";
+import { getTweetByID, getUserByID } from "../../util/api";
+import styles from "./BookmarkPost.module.css";
+import { FiBarChart2, FiBookmark, FiDownload, FiHeart, FiMessageCircle, FiMoreHorizontal } from "react-icons/fi";
 
-type SinglePostProps = {
-  tweet: TweetType;
+type BookmarkPostProps = {
+  postID: string;
 };
 
-function SinglePost({ tweet }: SinglePostProps) {
-  const { data } = useQuery({
-    queryKey: ["user", tweet.userID],
-    queryFn: () => getUserByID(tweet.userID),
-  });
+function BookmarkPost({ postID }: BookmarkPostProps) {
+    const { data: post } = useQuery({
+        queryKey: ["tweet", postID],
+        queryFn: () => getTweetByID(postID),
+      });
+      const { data } = useQuery({
+        queryKey: ["user", post?.userID],
+        queryFn: () => getUserByID(post?.userID),
+      });
+
   const [hoverIco, setHoverIco] = useState(false);
   const [hover, setHover] = useState({
     comment: false,
@@ -36,20 +33,24 @@ function SinglePost({ tweet }: SinglePostProps) {
 
   function postPage(e: SyntheticEvent) {
     e.stopPropagation();
-    navigate(`/status/${tweet.id}`)
+    navigate(`/status/${postID}`);
   }
 
   return (
-    <div className={styles["container-post"]}
-     onClick={postPage}
-     >
+    <div className={styles["container-post"]} onClick={postPage}>
       <div className={styles["ico-avatar"]}>
-        <Avatar hover tag={data?.id}/>
+        <Avatar hover tag={data?.id} />
       </div>
       <div className={styles["content-wrap"]}>
         <div className={styles["author-info"]}>
           <div className={styles["naming-info"]}>
-            <span className={styles["user-name"]} onClick={() => navigate(data?.id)} style={{zIndex:3}}>{data?.name}</span>
+            <span
+              className={styles["user-name"]}
+              onClick={() => navigate(data?.id)}
+              style={{ zIndex: 3 }}
+            >
+              {data?.name}
+            </span>
             <span className={styles["user-tag"]}>{data?.id} ·</span>
             <span className={styles["user-tag"]}>20m</span>
           </div>
@@ -65,9 +66,11 @@ function SinglePost({ tweet }: SinglePostProps) {
           </div>
         </div>
         <div className={styles["content"]}>
-          <span>{tweet.content}</span>
+          <span>{post?.content}</span>
         </div>
-        {tweet.imageURL && <img className={styles["img-tweet"]} src={tweet.imageURL}/>}
+        {post?.imageURL && (
+          <img className={styles["img-tweet"]} src={post?.imageURL} />
+        )}
         <div className={styles["panel"]}>
           <div className={styles["opt-wrap"]}>
             <div
@@ -88,7 +91,7 @@ function SinglePost({ tweet }: SinglePostProps) {
               className={styles["counter"]}
               style={{ color: hover.comment && "rgb(25, 140, 216)" }}
             >
-              {tweet?.replys?.length || 0}
+              {post?.replys?.length || 0}
             </span>
           </div>
           <div className={styles["opt-wrap"]}>
@@ -108,7 +111,7 @@ function SinglePost({ tweet }: SinglePostProps) {
               className={styles["counter"]}
               style={{ color: hover.like && "rgb(210,20,108)" }}
             >
-              {tweet.likes}
+              {post?.likes}
             </span>
           </div>
           <div className={styles["opt-wrap"]}>
@@ -167,4 +170,4 @@ function SinglePost({ tweet }: SinglePostProps) {
   );
 }
 
-export default SinglePost;
+export default BookmarkPost;

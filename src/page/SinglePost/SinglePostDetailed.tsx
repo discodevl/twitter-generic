@@ -1,10 +1,6 @@
+import { useClickOutside } from "@react-hookz/web";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo, useRef, useState } from "react";
-import { getUserByID } from "../../util/api";
-import { Link } from "react-router-dom";
-import { TweetType } from "../../model/interfaces";
-import styles from "./SinglePostDetailed.module.css";
-import Avatar from "../Avatar/Avatar";
 import {
   FiBookmark,
   FiDownload,
@@ -13,17 +9,20 @@ import {
   FiMessageCircle,
   FiMoreHorizontal,
 } from "react-icons/fi";
-import { useClickOutside } from "@react-hookz/web";
-import useGetUserID from "../../hooks/useGetUserID";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
-import Reply from "../Reply/Reply";
+import { Link, useNavigate } from "react-router-dom";
+import Avatar from "../../components/Avatar/Avatar";
+import Reply from "../../components/Reply/Reply";
+import useGetUserID from "../../hooks/useGetUserID";
+import { TweetType } from "../../model/interfaces";
+import { getUserByID } from "../../util/api";
+import styles from "./SinglePostDetailed.module.css";
 
 type SinglePostDetailedProps = {
   tweet: TweetType;
 };
 
 function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
-  console.log(tweet);
   const { data } = useQuery({
     queryKey: ["user", tweet.userID],
     queryFn: () => getUserByID(tweet?.userID),
@@ -40,6 +39,7 @@ function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
   const [replyText, setReplyText] = useState("");
   const [isTxtAreaFocused, setIsTxtAreaFocused] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useClickOutside(ref, () => {
     setIsTxtAreaFocused(false);
@@ -50,7 +50,7 @@ function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
   }, [tweet]);
 
   return (
-    <div>
+    <>
       <div
         className={styles["container-post"]}
         // onClick={() => navigate(`/status/${tweet.id}`)}
@@ -61,10 +61,18 @@ function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
               <Avatar hover tag={data?.id} />
             </Link>
             <div className={styles["naming-info"]}>
-              <Link to={`../${data?.id}`} style={{textDecoration: 'none', color: 'unset'}}>
-                <span className={styles["user-name"]}>{data?.name}</span>
-              </Link>
-              <span className={styles["user-tag"]}>{data?.id}</span>
+              <span
+                className={styles["user-name"]}
+                onClick={() => navigate(`../${data?.id}`)}
+              >
+                {data?.name}
+              </span>
+              <span
+                className={styles["user-tag"]}
+                onClick={() => navigate(`../${data?.id}`)}
+              >
+                {data?.id}
+              </span>
             </div>
           </div>
           <div
@@ -109,7 +117,7 @@ function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
                 className={styles["counter"]}
                 style={{ color: hover.comment && "rgb(25, 140, 216)" }}
               >
-                {tweet.comments.length}
+                {tweet?.replys?.length}
               </span>
             </div>
             <div className={styles["opt-wrap"]}>
@@ -149,6 +157,12 @@ function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
                   color={hover.bookmark ? "rgb(29, 156, 240)" : "#2f3336"}
                 />
               </div>
+              <span
+                className={styles["counter"]}
+                style={{ color: hover.bookmark && "rgb(25, 140, 216)" }}
+              >
+                {tweet?.bookmarks}
+              </span>
             </div>
             <div className={styles["opt-wrap"]}>
               <div
@@ -210,11 +224,11 @@ function SinglePostDetailed({ tweet }: SinglePostDetailedProps) {
         </div>
       </div>
       <div className={styles["replys-wrap"]}>
-        {tweet?.comments.map((reply) => (
-          <Reply key={tweet.id} reply={reply} />
+        {tweet?.replys.map((reply) => (
+          <Reply key={tweet.id} replyID={reply} />
         ))}
       </div>
-    </div>
+    </>
   );
 }
 

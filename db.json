@@ -5,8 +5,10 @@
       "userID": "@oTalDoReceba",
       "content": "hahahaha",
       "imageURL": "",
-      "comments": [],
+      "replys": [],
+      "type": "tweet",
       "likes": 0,
+      "bookmarks": 0,
       "creationDate": "2023-11-06T15:49:53.629Z"
     },
     {
@@ -14,8 +16,10 @@
       "userID": "@oTalDoReceba",
       "content": "eussbaygf",
       "imageURL": "https://pbs.twimg.com/media/F-V-pDEWwAARvyl?format=jpg&name=360x360",
-      "comments": [],
+      "replys": [],
+      "type": "tweet",
       "likes": 0,
+      "bookmarks": 0,
       "creationDate": "2023-11-06T15:49:53.629Z"
     },
     {
@@ -23,14 +27,10 @@
       "userID": "@cerrote7",
       "content": "sssiiiiiiiiiiiiimmm",
       "imageURL": "",
-      "comments": [
-        {
-          "userID": "@oTalDoReceba",
-          "comment": "pika",
-          "creationDate": "2023-11-06T15:49:53.629Z"
-        }
-      ],
+      "replys": ["5"],
+      "type": "tweet",
       "likes": 1,
+      "bookmarks": 0,
       "creationDate": "2023-11-06T15:49:53.629Z"
     },
     {
@@ -38,10 +38,24 @@
       "userID": "@rsjovit",
       "content": "sasasayurer",
       "imageURL": "",
-      "comments": [],
+      "replys": [],
+      "type": "tweet",
       "likes": 0,
+      "bookmarks": 1,
       "creationDate": "2023-11-11T15:49:53.629Z"
+    },
+    {
+      "id": "5",
+      "userID": "@oTalDoReceba",
+      "content": "pika",
+      "imageURL": "",
+      "replys": [],
+      "type": "reply",
+      "likes": 0,
+      "bookmarks": 0,
+      "creationDate": "2023-11-06T15:49:53.629Z"
     }
+
   ],
 
   "users": [
@@ -56,7 +70,7 @@
       "following": [],
       "followers": [],
       "posts": [],
-      "bookmarks": []
+      "bookmarks": ["4"]
     },
     {
       "id": "@cerrote7",

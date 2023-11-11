@@ -1,16 +1,18 @@
-export type CommentType = {
-    userID: string;
-    comment: string;
-    creationDate: Date; //new Date().toISOString()
-}
+// export type CommentType = {
+//     userID: string;
+//     comment: string;
+//     creationDate: Date; //new Date().toISOString()
+// }
 export type TweetType = {
     id: string;
     userID: string;
     creationDate: Date; //new Date().toISOString()
     content: string;
     imageURL?: string;
-    comments: CommentType[];
+    replys: string[]; //tweets id
     likes: number;
+    bookmarks: number;
+    type: 'tweet' | 'reply'
 }
 
 export type UserType = {

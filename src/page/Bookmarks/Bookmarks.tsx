@@ -1,21 +1,31 @@
 import { FiMoreHorizontal } from "react-icons/fi";
 import styles from "./Bookmarks.module.css";
-// import SinglePost from "../Feed/SinglePost";
+import useGetUserID from "../../hooks/useGetUserID";
+import { useQuery } from "@tanstack/react-query";
+import { getUserByID } from "../../util/api";
+import BookmarkPost from "./BookmarkPost";
 
 function Bookmarks() {
+  const {userID} = useGetUserID();
+
+  const {data} = useQuery({
+    queryKey: ["user", userID],
+    queryFn: () => getUserByID(userID),
+  })
+
   return (
     <div className={styles["container-bookmarks"]}>
       <div className={styles["header-bk"]}>
         <div className={styles["title-wrap"]}>
-          <span className={styles["username"]}>userName</span>
-          <span className={styles["tag"]}>@userName</span>
+          <span className={styles["username"]}>Bookmarks</span>
+          <span className={styles["tag"]}>{data?.id}</span>
         </div>
         <div className={styles["ico-wrap"]}>
           <FiMoreHorizontal size="25px" />
         </div>
       </div>
 
-      {/* <SinglePost tweet={{ userID: "12", content: "bkmarf", likes: 1 }} /> */}
+      {data?.bookmarks.map(id => <BookmarkPost key={id} postID={id}/>)}
     </div>
   );
 }
