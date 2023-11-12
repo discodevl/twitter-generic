@@ -9,7 +9,11 @@ import { useMutation } from "@tanstack/react-query";
 import { postTweet } from "../../util/api";
 import { v4 as uuidv4 } from "uuid";
 
-function AddPost() {
+type AddPostProps = {
+  reload: () => void;
+}
+
+function AddPost({reload}: AddPostProps) {
   const [text, setText] = useState("");
   const [isTxtAreaFocused, setIsTxtAreaFocused] = useState(false);
 
@@ -30,6 +34,7 @@ function AddPost() {
       creationDate: new Date().toISOString(),
     });
     setText("");
+    reload()
   }
 
   return (

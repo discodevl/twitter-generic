@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     if (userID) return;
-    localStorage.setItem("userID", "@oTalDoReceba");
+    localStorage.setItem("userID", "@euai");
   }, []);
 
   return (

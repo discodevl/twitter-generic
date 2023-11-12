@@ -4,7 +4,7 @@ import { TweetType, UserType } from "../model/interfaces";
 const BASE_URL = "http://localhost:3000/";
 
 export async function getAllTweets(): Promise<TweetType[]> {
-  const res = await axios.get(`${BASE_URL}tweets?type=tweet`);
+  const res = await axios.get(`${BASE_URL}tweets?type=tweet&_sort=creationDate&_order=desc`);
   return res.data;
 }
 export async function getTweetsByUser(id: string): Promise<TweetType[]> {

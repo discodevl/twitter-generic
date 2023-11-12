@@ -6,12 +6,16 @@ import Header from "./Header";
 import styles from "./Home.module.css";
 
 function Home() {
-  const { data } = useQuery({ queryKey: ["tweets"], queryFn: getAllTweets });
+  const { data, refetch } = useQuery({ queryKey: ["tweets"], queryFn: getAllTweets });
 
+  function reload() {
+    refetch()
+    console.log("reload")
+  }
   return (
     <div className={styles["container-feed"]}>
       <Header />
-      <AddPost />
+      <AddPost reload={reload} />
       {data?.map((tweet) => (
         <SinglePost key={tweet.id} tweet={tweet} />
       ))}

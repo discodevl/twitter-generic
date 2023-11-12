@@ -2,20 +2,9 @@
   "tweets": [
     {
       "id": "1",
-      "userID": "@oTalDoReceba",
+      "userID": "@luvadepedreiro",
       "content": "hahahaha",
       "imageURL": "",
-      "replys": [],
-      "type": "tweet",
-      "likes": 0,
-      "bookmarks": 0,
-      "creationDate": "2023-11-06T15:49:53.629Z"
-    },
-    {
-      "id": "2",
-      "userID": "@oTalDoReceba",
-      "content": "eussbaygf",
-      "imageURL": "https://pbs.twimg.com/media/F-V-pDEWwAARvyl?format=jpg&name=360x360",
       "replys": [],
       "type": "tweet",
       "likes": 0,
@@ -27,11 +16,13 @@
       "userID": "@cerrote7",
       "content": "sssiiiiiiiiiiiiimmm",
       "imageURL": "",
-      "replys": ["5"],
+      "replys": [
+        "5"
+      ],
       "type": "tweet",
       "likes": 1,
       "bookmarks": 0,
-      "creationDate": "2023-11-06T15:49:53.629Z"
+      "creationDate": "2023-11-06T17:49:53.629Z"
     },
     {
       "id": "4",
@@ -42,53 +33,43 @@
       "type": "tweet",
       "likes": 0,
       "bookmarks": 1,
-      "creationDate": "2023-11-11T15:49:53.629Z"
+      "creationDate": "2023-11-08T15:49:53.629Z"
     },
     {
       "id": "5",
-      "userID": "@oTalDoReceba",
+      "userID": "@luvadepedreiro",
       "content": "pika",
       "imageURL": "",
       "replys": [],
       "type": "reply",
       "likes": 0,
       "bookmarks": 0,
-      "creationDate": "2023-11-06T15:49:53.629Z"
-    },
-    {
-      "id": "6",
-      "userID": "@rsjovit",
-      "content": "partiu cair de boca na salsisha na casa do birobiro hehe",
-      "imageURL": "",
-      "replys": [],
-      "type": "tweet",
-      "likes": 0,
-      "bookmarks": 0,
-      "creationDate": "2023-11-06T15:49:53.629Z"
+      "creationDate": "2023-11-09T15:49:53.629Z"
     }
   ],
-
   "users": [
     {
-      "id": "@oTalDoReceba",
-      "name": "Luva",
+      "id": "@luvadepedreiro",
+      "name": "RECEBA🇧🇷",
       "bio": "O cara da luva de predero",
       "password": "1234",
-      "imgProfileURL": "https://noticiasdatv.uol.com.br/media/_versions/artigos_2021/luva-de-pedreiro-abandona-carreira-foto-reproducao-instagram_fixed_large.jpg",
-      "imgBannerURL": "https://icdn-1.motor1.com/images/mgl/Mq2GY/s1/top-10-tuned-cars-of-2012.jpg",
+      "imgProfileURL": "https://pbs.twimg.com/profile_images/1609360689541308417/4qFIMQsz_400x400.jpg",
+      "imgBannerURL": "https://pbs.twimg.com/profile_banners/1499060355695366151/1698715502/1500x500",
       "creationDate": "2023-11-06T15:49:53.629Z",
       "following": [],
       "followers": [],
       "posts": [],
-      "bookmarks": ["4"]
+      "bookmarks": [
+        "4"
+      ]
     },
     {
       "id": "@cerrote7",
       "name": "CR7",
       "bio": "Milior do mundo",
       "password": "1234",
-      "imgProfileURL": "https://www.newsbox.pk/wp-content/uploads/2020/03/cristiano-ronaldo.jpg",
-      "imgBannerURL": "https://eldiariony.com/wp-content/uploads/sites/2/2020/06/hoteles-cristiano-ronaldo-pestanacr7.jpg?quality=80&strip=all",
+      "imgProfileURL": "https://pbs.twimg.com/profile_images/1594446880498401282/o4L2z8Ay_400x400.jpg",
+      "imgBannerURL": "https://pbs.twimg.com/profile_banners/155659213/1668980773/1500x500",
       "creationDate": "2023-11-06T20:59:37.480Z",
       "following": [],
       "followers": [],
@@ -103,6 +84,19 @@
       "imgProfileURL": "https://pbs.twimg.com/profile_images/1655410872565526528/dvSq-0to_400x400.jpg",
       "imgBannerURL": "https://pbs.twimg.com/profile_banners/1123202702870233089/1666116717/1500x500",
       "creationDate": "2023-11-11T20:59:37.480Z",
+      "following": [],
+      "followers": [],
+      "posts": [],
+      "bookmarks": []
+    },
+    {
+      "id": "@euai",
+      "name": "?!?!",
+      "bio": "ratinhoo",
+      "password": "1234",
+      "imgProfileURL": "https://pbs.twimg.com/profile_images/1408167636798746627/jeglH51D_400x400.png",
+      "imgBannerURL": "https://pbs.twimg.com/profile_banners/1250489885477257217/1624568302/1500x500",
+      "creationDate": "2023-11-12T02:09:17.480Z",
       "following": [],
       "followers": [],
       "posts": [],

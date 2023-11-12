@@ -9,7 +9,7 @@ import {
 import { TweetType } from "../../model/interfaces";
 import Avatar from "../Avatar/Avatar";
 import styles from "./SinglePost.module.css";
-import { SyntheticEvent, useState } from "react";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getUserByID } from "../../util/api";
 import { useNavigate } from "react-router-dom";
@@ -33,23 +33,21 @@ function SinglePost({ tweet }: SinglePostProps) {
   });
 
   const navigate = useNavigate();
-
-  function postPage(e: SyntheticEvent) {
-    e.stopPropagation();
-    navigate(`/status/${tweet.id}`)
-  }
-
+  
   return (
-    <div className={styles["container-post"]}
-     onClick={postPage}
-     >
+    <div className={styles["container-post"]}>
       <div className={styles["ico-avatar"]}>
-        <Avatar hover tag={data?.id}/>
+        <Avatar hover tag={data?.id} />
       </div>
       <div className={styles["content-wrap"]}>
         <div className={styles["author-info"]}>
           <div className={styles["naming-info"]}>
-            <span className={styles["user-name"]} onClick={() => navigate(data?.id)} >{data?.name}</span>
+            <span
+              className={styles["user-name"]}
+              onClick={() => navigate(data?.id)}
+            >
+              {data?.name}
+            </span>
             <span className={styles["user-tag"]}>{data?.id} ·</span>
             <span className={styles["user-tag"]}>20m</span>
           </div>
@@ -67,7 +65,9 @@ function SinglePost({ tweet }: SinglePostProps) {
         <div className={styles["content"]}>
           <span>{tweet.content}</span>
         </div>
-        {tweet.imageURL && <img className={styles["img-tweet"]} src={tweet.imageURL}/>}
+        {tweet.imageURL && (
+          <img className={styles["img-tweet"]} src={tweet.imageURL} />
+        )}
         <div className={styles["panel"]}>
           <div className={styles["opt-wrap"]}>
             <div
