@@ -9,9 +9,9 @@ import {
 import { TweetType } from "../../model/interfaces";
 import Avatar from "../Avatar/Avatar";
 import styles from "./SinglePost.module.css";
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { getUserByID } from "../../util/api";
+import { SyntheticEvent, useState } from "react";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { getUserByID, patchTweet } from "../../util/api";
 import { useNavigate } from "react-router-dom";
 
 type SinglePostProps = {
@@ -23,7 +23,9 @@ function SinglePost({ tweet }: SinglePostProps) {
     queryKey: ["user", tweet.userID],
     queryFn: () => getUserByID(tweet.userID),
   });
+  const tweetMutation = useMutation({ mutationFn: () => patchTweet(tweet.id, tweet.likes+1) });
   const [hoverIco, setHoverIco] = useState(false);
+  // const [isLiked, setIsLiked] = useState(false);
   const [hover, setHover] = useState({
     comment: false,
     like: false,
@@ -33,28 +35,43 @@ function SinglePost({ tweet }: SinglePostProps) {
   });
 
   const navigate = useNavigate();
-  
+
+  function openDetails() {
+    navigate(`/status/${tweet.id}`);
+  }
+
+  function moreOptions(e: SyntheticEvent) {
+    e.stopPropagation();
+    console.log("more opts...");
+  }
+
+  function openProfile(e: SyntheticEvent) {
+    e.stopPropagation();
+    navigate(`/${tweet.userID}`);
+  }
+
+  function handleLike(e: SyntheticEvent) {
+    e.stopPropagation();
+    tweetMutation.mutate();
+  }
+
   return (
-    <div className={styles["container-post"]}>
+    <div className={styles["container-post"]} onClick={openDetails}>
       <div className={styles["ico-avatar"]}>
-        <Avatar hover tag={data?.id} />
+        <Avatar hover tag={data?.id} onClick={openProfile} />
       </div>
       <div className={styles["content-wrap"]}>
         <div className={styles["author-info"]}>
-          <div className={styles["naming-info"]}>
-            <span
-              className={styles["user-name"]}
-              onClick={() => navigate(data?.id)}
-            >
-              {data?.name}
-            </span>
-            <span className={styles["user-tag"]}>{data?.id} ·</span>
+          <div className={styles["naming-info"]} >
+            <span className={styles["user-name"]} onClick={openProfile}>{data?.name}</span>
+            <span className={styles["user-tag"]} onClick={openProfile}>{data?.id} ·</span>
             <span className={styles["user-tag"]}>20m</span>
           </div>
           <div
             className={styles["ico-wrap"]}
             onMouseEnter={() => setHoverIco(true)}
             onMouseLeave={() => setHoverIco(false)}
+            onClick={moreOptions}
           >
             <FiMoreHorizontal
               size="18px"
@@ -91,7 +108,7 @@ function SinglePost({ tweet }: SinglePostProps) {
               {tweet?.replys?.length || 0}
             </span>
           </div>
-          <div className={styles["opt-wrap"]}>
+          <div className={styles["opt-wrap"]} onClick={handleLike}>
             <div
               className={styles["ico-like"]}
               onMouseEnter={() => setHover((prev) => ({ ...prev, like: true }))}

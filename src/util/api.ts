@@ -28,3 +28,11 @@ export async function postTweet(postBody: TweetType) {
     console.log(err)
   }
 }
+
+export async function patchTweet(id: string, likes: number) {
+  try {
+    await axios.patch(`${BASE_URL}tweets/${id}`, {likes});
+  } catch (err) {
+    console.log(err)
+  }
+}
