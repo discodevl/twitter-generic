@@ -29,9 +29,17 @@ export async function postTweet(postBody: TweetType) {
   }
 }
 
-export async function patchTweet(id: string, likes: number) {
+export async function increseLike(id: string, {likes, userID}: {likes: string[]; userID: string}) {
   try {
-    await axios.patch(`${BASE_URL}tweets/${id}`, {likes});
+    await axios.patch(`${BASE_URL}tweets/${id}`, {likes: [...likes, userID]});
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+export async function decreseLike(id: string, {likes, userID}: {likes: string[]; userID: string}) {
+  try {
+    await axios.patch(`${BASE_URL}tweets/${id}`, {likes: [...likes.filter(id => id !== userID)]});
   } catch (err) {
     console.log(err)
   }

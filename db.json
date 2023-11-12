@@ -7,8 +7,8 @@
       "imageURL": "",
       "replys": [],
       "type": "tweet",
-      "likes": 1,
-      "bookmarks": 0,
+      "likes": [],
+      "bookmarks": [],
       "creationDate": "2023-11-06T15:49:53.629Z"
     },
     {
@@ -20,8 +20,10 @@
         "5"
       ],
       "type": "tweet",
-      "likes": 1,
-      "bookmarks": 0,
+      "likes": [
+        "@luvadepedreiro"
+      ],
+      "bookmarks": [],
       "creationDate": "2023-11-06T17:49:53.629Z"
     },
     {
@@ -32,8 +34,8 @@
       "imageURL": "",
       "replys": [],
       "type": "tweet",
-      "likes": 1,
-      "bookmarks": 1,
+      "likes": [],
+      "bookmarks": [],
       "creationDate": "2023-11-08T15:49:53.629Z"
     },
     {
@@ -43,8 +45,8 @@
       "imageURL": "",
       "replys": [],
       "type": "reply",
-      "likes": 0,
-      "bookmarks": 0,
+      "likes": [],
+      "bookmarks": [],
       "creationDate": "2023-11-09T15:49:53.629Z"
     }
   ],

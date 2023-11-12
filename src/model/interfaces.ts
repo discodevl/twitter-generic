@@ -10,8 +10,8 @@ export type TweetType = {
     content: string;
     imageURL?: string;
     replys: string[]; //tweets id
-    likes: number;
-    bookmarks: number;
+    likes: string[]; //users id 
+    bookmarks: string[];
     type: 'tweet' | 'reply'
 }
 

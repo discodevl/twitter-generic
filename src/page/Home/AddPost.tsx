@@ -29,8 +29,8 @@ function AddPost({reload}: AddPostProps) {
       imageURL: "",
       replys: [],
       type: "tweet",
-      likes: 0,
-      bookmarks: 0,
+      likes: [],
+      bookmarks: [],
       creationDate: new Date().toISOString(),
     });
     setText("");

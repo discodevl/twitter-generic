@@ -1,31 +1,38 @@
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { SyntheticEvent, useState, useMemo } from "react";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import {
   FiBarChart2,
   FiBookmark,
   FiDownload,
-  FiHeart,
   FiMessageCircle,
   FiMoreHorizontal,
 } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import useGetUserID from "../../hooks/useGetUserID";
 import { TweetType } from "../../model/interfaces";
+import { decreseLike, getUserByID, increseLike } from "../../util/api";
 import Avatar from "../Avatar/Avatar";
 import styles from "./SinglePost.module.css";
-import { SyntheticEvent, useState } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { getUserByID, patchTweet } from "../../util/api";
-import { useNavigate } from "react-router-dom";
 
 type SinglePostProps = {
   tweet: TweetType;
 };
 
 function SinglePost({ tweet }: SinglePostProps) {
+  const { userID } = useGetUserID();
   const { data } = useQuery({
     queryKey: ["user", tweet.userID],
     queryFn: () => getUserByID(tweet.userID),
   });
-  const tweetMutation = useMutation({ mutationFn: () => patchTweet(tweet.id, tweet.likes+1) });
+  const likeIncMutation = useMutation({
+    mutationFn: () => increseLike(tweet.id, { likes: tweet.likes, userID }),
+  });
+  const likeDecMutation = useMutation({
+    mutationFn: () => decreseLike(tweet.id, { likes: tweet.likes, userID }),
+  });
   const [hoverIco, setHoverIco] = useState(false);
-  // const [isLiked, setIsLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState<boolean>(tweet.likes.includes(userID));
   const [hover, setHover] = useState({
     comment: false,
     like: false,
@@ -36,13 +43,14 @@ function SinglePost({ tweet }: SinglePostProps) {
 
   const navigate = useNavigate();
 
+  const views = useMemo(() => Math.ceil(Math.random() * 5), [])
+
   function openDetails() {
     navigate(`/status/${tweet.id}`);
   }
 
   function moreOptions(e: SyntheticEvent) {
     e.stopPropagation();
-    console.log("more opts...");
   }
 
   function openProfile(e: SyntheticEvent) {
@@ -50,9 +58,26 @@ function SinglePost({ tweet }: SinglePostProps) {
     navigate(`/${tweet.userID}`);
   }
 
+  function viewsHandler(e: SyntheticEvent) {
+    e.stopPropagation();
+    console.log("views")
+  }
+
+  function handleBookmark(e: SyntheticEvent) {
+    e.stopPropagation();
+    console.log("bokmark")
+    //todo mutation bookmark
+  }
+
   function handleLike(e: SyntheticEvent) {
     e.stopPropagation();
-    tweetMutation.mutate();
+    if (isLiked) {
+      likeDecMutation.mutate();
+      setIsLiked(false);
+    } else {
+      likeIncMutation.mutate();
+      setIsLiked(true);
+    }
   }
 
   return (
@@ -62,9 +87,13 @@ function SinglePost({ tweet }: SinglePostProps) {
       </div>
       <div className={styles["content-wrap"]}>
         <div className={styles["author-info"]}>
-          <div className={styles["naming-info"]} >
-            <span className={styles["user-name"]} onClick={openProfile}>{data?.name}</span>
-            <span className={styles["user-tag"]} onClick={openProfile}>{data?.id} ·</span>
+          <div className={styles["naming-info"]}>
+            <span className={styles["user-name"]} onClick={openProfile}>
+              {data?.name}
+            </span>
+            <span className={styles["user-tag"]} onClick={openProfile}>
+              {data?.id} ·
+            </span>
             <span className={styles["user-tag"]}>20m</span>
           </div>
           <div
@@ -116,19 +145,23 @@ function SinglePost({ tweet }: SinglePostProps) {
                 setHover((prev) => ({ ...prev, like: false }))
               }
             >
-              <FiHeart
-                size="18px"
-                color={hover.like ? "rgb(210,20,108)" : "#2f3336"}
-              />
+              {isLiked ? (
+                <AiFillHeart size="18px" color="rgb(210,20,108)" />
+              ) : (
+                <AiOutlineHeart
+                  size="18px"
+                  color={hover.like ? "rgb(210,20,108)" : "#2f3336"}
+                />
+              )}
             </div>
             <span
               className={styles["counter"]}
-              style={{ color: hover.like && "rgb(210,20,108)" }}
+              style={{ color: (hover.like || isLiked) && "rgb(210,20,108)" }}
             >
-              {tweet.likes}
+              {tweet.likes.length + (isLiked ? 1 : 0)}
             </span>
           </div>
-          <div className={styles["opt-wrap"]}>
+          <div className={styles["opt-wrap"]} onClick={viewsHandler}>
             <div
               className={styles["ico"]}
               onMouseEnter={() => setHover((prev) => ({ ...prev, view: true }))}
@@ -145,7 +178,7 @@ function SinglePost({ tweet }: SinglePostProps) {
               className={styles["counter"]}
               style={{ color: hover.view && "rgb(25, 140, 216)" }}
             >
-              {Math.ceil(Math.random() * 5)}
+              {views}
             </span>
           </div>
           <div className={styles["opt-wrap"]}>
@@ -157,6 +190,7 @@ function SinglePost({ tweet }: SinglePostProps) {
               onMouseLeave={() =>
                 setHover((prev) => ({ ...prev, bookmark: false }))
               }
+              onClick={handleBookmark}
             >
               <FiBookmark
                 size="18px"
