@@ -4,21 +4,28 @@ import { useNavigate } from "react-router-dom";
 import Avatar from "../../components/Avatar/Avatar";
 import { getTweetByID, getUserByID } from "../../util/api";
 import styles from "./BookmarkPost.module.css";
-import { FiBarChart2, FiBookmark, FiDownload, FiHeart, FiMessageCircle, FiMoreHorizontal } from "react-icons/fi";
+import {
+  FiBarChart2,
+  FiBookmark,
+  FiDownload,
+  FiHeart,
+  FiMessageCircle,
+  FiMoreHorizontal,
+} from "react-icons/fi";
 
 type BookmarkPostProps = {
   postID: string;
 };
 
 function BookmarkPost({ postID }: BookmarkPostProps) {
-    const { data: post } = useQuery({
-        queryKey: ["tweet", postID],
-        queryFn: () => getTweetByID(postID),
-      });
-      const { data } = useQuery({
-        queryKey: ["user", post?.userID],
-        queryFn: () => getUserByID(post?.userID),
-      });
+  const { data: post } = useQuery({
+    queryKey: ["tweet", postID],
+    queryFn: () => getTweetByID(postID),
+  });
+  const { data } = useQuery({
+    queryKey: ["user", post?.userID],
+    queryFn: () => getUserByID(post?.userID),
+  });
 
   const [hoverIco, setHoverIco] = useState(false);
   const [hover, setHover] = useState({

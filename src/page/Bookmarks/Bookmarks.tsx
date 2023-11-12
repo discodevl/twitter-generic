@@ -6,12 +6,14 @@ import { getUserByID } from "../../util/api";
 import BookmarkPost from "./BookmarkPost";
 
 function Bookmarks() {
-  const {userID} = useGetUserID();
+  const { userID } = useGetUserID();
+  
+  console.log(userID);
 
-  const {data} = useQuery({
+  const { data } = useQuery({
     queryKey: ["user", userID],
     queryFn: () => getUserByID(userID),
-  })
+  });
 
   return (
     <div className={styles["container-bookmarks"]}>
@@ -25,7 +27,11 @@ function Bookmarks() {
         </div>
       </div>
 
-      {data?.bookmarks.map(id => <BookmarkPost key={id} postID={id}/>)}
+      {data?.bookmarks
+        .filter((bk) => bk === userID)
+        .map((id) => (
+          <BookmarkPost key={id} postID={id} />
+        ))}
     </div>
   );
 }

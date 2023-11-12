@@ -3,15 +3,21 @@ import { SyntheticEvent, useState, useMemo } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import {
   FiBarChart2,
-  FiBookmark,
   FiDownload,
   FiMessageCircle,
   FiMoreHorizontal,
 } from "react-icons/fi";
+import { GoBookmark, GoBookmarkFill } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
 import useGetUserID from "../../hooks/useGetUserID";
 import { TweetType } from "../../model/interfaces";
-import { decreseLike, getUserByID, increseLike } from "../../util/api";
+import {
+  addTweetToBookmark,
+  decreseLike,
+  getUserByID,
+  increseLike,
+  removeTweetToBookmark,
+} from "../../util/api";
 import Avatar from "../Avatar/Avatar";
 import styles from "./SinglePost.module.css";
 
@@ -31,8 +37,19 @@ function SinglePost({ tweet }: SinglePostProps) {
   const likeDecMutation = useMutation({
     mutationFn: () => decreseLike(tweet.id, { likes: tweet.likes, userID }),
   });
+  const addBookmarkMutation = useMutation({
+    mutationFn: () =>
+      addTweetToBookmark(tweet.id, { bookmarks: tweet.bookmarks, userID }),
+  });
+  const removeBookmarkMutation = useMutation({
+    mutationFn: () =>
+      removeTweetToBookmark(tweet.id, { bookmarks: tweet.bookmarks, userID }),
+  });
   const [hoverIco, setHoverIco] = useState(false);
   const [isLiked, setIsLiked] = useState<boolean>(tweet.likes.includes(userID));
+  const [isBookmarked, setIsBookmarked] = useState<boolean>(
+    tweet.bookmarks.includes(userID)
+  );
   const [hover, setHover] = useState({
     comment: false,
     like: false,
@@ -43,7 +60,7 @@ function SinglePost({ tweet }: SinglePostProps) {
 
   const navigate = useNavigate();
 
-  const views = useMemo(() => Math.ceil(Math.random() * 5), [])
+  const views = useMemo(() => Math.ceil(Math.random() * 5), []);
 
   function openDetails() {
     navigate(`/status/${tweet.id}`);
@@ -60,12 +77,18 @@ function SinglePost({ tweet }: SinglePostProps) {
 
   function viewsHandler(e: SyntheticEvent) {
     e.stopPropagation();
-    console.log("views")
+    console.log("views");
   }
 
   function handleBookmark(e: SyntheticEvent) {
     e.stopPropagation();
-    console.log("bokmark")
+    if (isBookmarked) {
+      removeBookmarkMutation.mutate();
+      setIsBookmarked(false);
+    } else {
+      addBookmarkMutation.mutate();
+      setIsBookmarked(true);
+    }
     //todo mutation bookmark
   }
 
@@ -192,10 +215,14 @@ function SinglePost({ tweet }: SinglePostProps) {
               }
               onClick={handleBookmark}
             >
-              <FiBookmark
-                size="18px"
-                color={hover.bookmark ? "rgb(29, 156, 240)" : "#2f3336"}
-              />
+              {isBookmarked ? (
+                <GoBookmarkFill size="18px" color="rgb(29, 156, 240)" />
+              ) : (
+                <GoBookmark
+                  size="18px"
+                  color={hover.bookmark ? "rgb(29, 156, 240)" : "#2f3336"}
+                />
+              )}
             </div>
             <div
               className={styles["ico"]}

@@ -44,3 +44,18 @@ export async function decreseLike(id: string, {likes, userID}: {likes: string[];
     console.log(err)
   }
 }
+
+export async function addTweetToBookmark(id: string, {bookmarks, userID}: {bookmarks: string[]; userID: string}) {
+  try {
+    await axios.patch(`${BASE_URL}tweets/${id}`, {bookmarks: [...bookmarks, userID]});
+  } catch (err) {
+    console.log(err)
+  }
+}
+export async function removeTweetToBookmark(id: string, {bookmarks, userID}: {bookmarks: string[]; userID: string}) {
+  try {
+    await axios.patch(`${BASE_URL}tweets/${id}`, {bookmarks: [...bookmarks.filter(bk => bk !== userID)]});
+  } catch (err) {
+    console.log(err)
+  }
+}

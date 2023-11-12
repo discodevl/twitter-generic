@@ -35,7 +35,9 @@
       "replys": [],
       "type": "tweet",
       "likes": [],
-      "bookmarks": [],
+      "bookmarks": [
+        "@euai"
+      ],
       "creationDate": "2023-11-08T15:49:53.629Z"
     },
     {
