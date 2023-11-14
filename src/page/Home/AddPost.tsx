@@ -30,7 +30,7 @@ function AddPost({reload}: AddPostProps) {
       replys: [],
       type: "tweet",
       likes: [],
-      bookmarks: [],
+      bookmarksQuantity: 0,
       creationDate: new Date().toISOString(),
     });
     setText("");

@@ -12,11 +12,11 @@ import { useNavigate } from "react-router-dom";
 import useGetUserID from "../../hooks/useGetUserID";
 import { TweetType } from "../../model/interfaces";
 import {
-  addTweetToBookmark,
+  decreaseBookmark,
   decreseLike,
   getUserByID,
+  increaseBookmark,
   increseLike,
-  removeTweetToBookmark,
 } from "../../util/api";
 import Avatar from "../Avatar/Avatar";
 import styles from "./SinglePost.module.css";
@@ -39,16 +39,16 @@ function SinglePost({ tweet }: SinglePostProps) {
   });
   const addBookmarkMutation = useMutation({
     mutationFn: () =>
-      addTweetToBookmark(tweet.id, { bookmarks: tweet.bookmarks, userID }),
+      increaseBookmark(tweet.id, tweet.bookmarksQuantity ),
   });
   const removeBookmarkMutation = useMutation({
     mutationFn: () =>
-      removeTweetToBookmark(tweet.id, { bookmarks: tweet.bookmarks, userID }),
+      decreaseBookmark(tweet.id, tweet.bookmarksQuantity),
   });
   const [hoverIco, setHoverIco] = useState(false);
   const [isLiked, setIsLiked] = useState<boolean>(tweet.likes.includes(userID));
   const [isBookmarked, setIsBookmarked] = useState<boolean>(
-    tweet.bookmarks.includes(userID)
+    false//todo
   );
   const [hover, setHover] = useState({
     comment: false,

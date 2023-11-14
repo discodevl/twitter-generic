@@ -4,7 +4,9 @@ import { TweetType, UserType } from "../model/interfaces";
 const BASE_URL = "http://localhost:3000/";
 
 export async function getAllTweets(): Promise<TweetType[]> {
-  const res = await axios.get(`${BASE_URL}tweets?type=tweet&_sort=creationDate&_order=desc`);
+  const res = await axios.get(
+    `${BASE_URL}tweets?type=tweet&_sort=creationDate&_order=desc`
+  );
   return res.data;
 }
 export async function getTweetsByUser(id: string): Promise<TweetType[]> {
@@ -25,37 +27,49 @@ export async function postTweet(postBody: TweetType) {
   try {
     await axios.post(`${BASE_URL}tweets`, { ...postBody });
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 }
 
-export async function increseLike(id: string, {likes, userID}: {likes: string[]; userID: string}) {
+export async function increseLike(
+  id: string,
+  { likes, userID }: { likes: string[]; userID: string }
+) {
   try {
-    await axios.patch(`${BASE_URL}tweets/${id}`, {likes: [...likes, userID]});
+    await axios.patch(`${BASE_URL}tweets/${id}`, { likes: [...likes, userID] });
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 }
 
-export async function decreseLike(id: string, {likes, userID}: {likes: string[]; userID: string}) {
+export async function decreseLike(
+  id: string,
+  { likes, userID }: { likes: string[]; userID: string }
+) {
   try {
-    await axios.patch(`${BASE_URL}tweets/${id}`, {likes: [...likes.filter(id => id !== userID)]});
+    await axios.patch(`${BASE_URL}tweets/${id}`, {
+      likes: [...likes.filter((id) => id !== userID)],
+    });
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 }
 
-export async function addTweetToBookmark(id: string, {bookmarks, userID}: {bookmarks: string[]; userID: string}) {
+export async function increaseBookmark(id: string, bookmarksQnt: number) {
   try {
-    await axios.patch(`${BASE_URL}tweets/${id}`, {bookmarks: [...bookmarks, userID]});
+    await axios.patch(`${BASE_URL}tweets/${id}`, {
+      bookmarksQuantity: bookmarksQnt + 1,
+    });
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 }
-export async function removeTweetToBookmark(id: string, {bookmarks, userID}: {bookmarks: string[]; userID: string}) {
+export async function decreaseBookmark(id: string, bookmarksQnt: number) {
   try {
-    await axios.patch(`${BASE_URL}tweets/${id}`, {bookmarks: [...bookmarks.filter(bk => bk !== userID)]});
+    await axios.patch(`${BASE_URL}tweets/${id}`, {
+      bookmarksQuantity: bookmarksQnt - 1,
+    });
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 }

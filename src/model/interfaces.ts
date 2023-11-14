@@ -11,7 +11,7 @@ export type TweetType = {
     imageURL?: string;
     replys: string[]; //tweets id
     likes: string[]; //users id 
-    bookmarks: string[];
+    bookmarksQuantity: number;
     type: 'tweet' | 'reply'
 }
 

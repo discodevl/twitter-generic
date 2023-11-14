@@ -8,7 +8,7 @@
       "replys": [],
       "type": "tweet",
       "likes": [],
-      "bookmarks": [],
+      "bookmarksQuantity": 34,
       "creationDate": "2023-11-06T15:49:53.629Z"
     },
     {
@@ -23,7 +23,7 @@
       "likes": [
         "@luvadepedreiro"
       ],
-      "bookmarks": [],
+      "bookmarksQuantity": 0,
       "creationDate": "2023-11-06T17:49:53.629Z"
     },
     {
@@ -35,9 +35,7 @@
       "replys": [],
       "type": "tweet",
       "likes": [],
-      "bookmarks": [
-        "@euai"
-      ],
+      "bookmarksQuantity": 1,
       "creationDate": "2023-11-08T15:49:53.629Z"
     },
     {
@@ -48,7 +46,7 @@
       "replys": [],
       "type": "reply",
       "likes": [],
-      "bookmarks": [],
+      "bookmarksQuantity": 0,
       "creationDate": "2023-11-09T15:49:53.629Z"
     }
   ],
