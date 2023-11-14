@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { SyntheticEvent, useState, useMemo } from "react";
+import { SyntheticEvent, useState, useMemo, useEffect } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import {
   FiBarChart2,
@@ -12,11 +12,13 @@ import { useNavigate } from "react-router-dom";
 import useGetUserID from "../../hooks/useGetUserID";
 import { TweetType } from "../../model/interfaces";
 import {
+  addBookmarkToUser,
   decreaseBookmark,
   decreseLike,
   getUserByID,
   increaseBookmark,
   increseLike,
+  removeBookmarkToUser,
 } from "../../util/api";
 import Avatar from "../Avatar/Avatar";
 import styles from "./SinglePost.module.css";
@@ -27,6 +29,10 @@ type SinglePostProps = {
 
 function SinglePost({ tweet }: SinglePostProps) {
   const { userID } = useGetUserID();
+  const { data: currentUser } = useQuery({
+    queryKey: ["user", userID],
+    queryFn: () => getUserByID(userID),
+  });
   const { data } = useQuery({
     queryKey: ["user", tweet.userID],
     queryFn: () => getUserByID(tweet.userID),
@@ -38,18 +44,33 @@ function SinglePost({ tweet }: SinglePostProps) {
     mutationFn: () => decreseLike(tweet.id, { likes: tweet.likes, userID }),
   });
   const addBookmarkMutation = useMutation({
-    mutationFn: () =>
-      increaseBookmark(tweet.id, tweet.bookmarksQuantity ),
+    mutationFn: () => increaseBookmark(tweet.id, tweet.bookmarksQuantity),
   });
   const removeBookmarkMutation = useMutation({
+    mutationFn: () => decreaseBookmark(tweet.id, tweet.bookmarksQuantity),
+  });
+  const addBookmarkUserMutation = useMutation({
     mutationFn: () =>
-      decreaseBookmark(tweet.id, tweet.bookmarksQuantity),
+      addBookmarkToUser(userID, {
+        bookmarkList: currentUser?.bookmarks,
+        tweetID: tweet.id,
+      }),
+  });
+  const removeBookmarkUserMutation = useMutation({
+    mutationFn: () =>
+      removeBookmarkToUser(userID, {
+        bookmarkList: currentUser?.bookmarks,
+        tweetID: tweet.id,
+      }),
   });
   const [hoverIco, setHoverIco] = useState(false);
   const [isLiked, setIsLiked] = useState<boolean>(tweet.likes.includes(userID));
-  const [isBookmarked, setIsBookmarked] = useState<boolean>(
-    false//todo
-  );
+  const [isBookmarked, setIsBookmarked] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsBookmarked(currentUser?.bookmarks.includes(tweet.id));
+  }, [currentUser?.bookmarks, tweet.id]);
+
   const [hover, setHover] = useState({
     comment: false,
     like: false,
@@ -84,12 +105,13 @@ function SinglePost({ tweet }: SinglePostProps) {
     e.stopPropagation();
     if (isBookmarked) {
       removeBookmarkMutation.mutate();
+      removeBookmarkUserMutation.mutate();
       setIsBookmarked(false);
     } else {
       addBookmarkMutation.mutate();
+      addBookmarkUserMutation.mutate();
       setIsBookmarked(true);
     }
-    //todo mutation bookmark
   }
 
   function handleLike(e: SyntheticEvent) {

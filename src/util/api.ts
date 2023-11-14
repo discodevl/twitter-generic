@@ -67,7 +67,34 @@ export async function increaseBookmark(id: string, bookmarksQnt: number) {
 export async function decreaseBookmark(id: string, bookmarksQnt: number) {
   try {
     await axios.patch(`${BASE_URL}tweets/${id}`, {
-      bookmarksQuantity: bookmarksQnt - 1,
+      bookmarksQuantity: bookmarksQnt,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function addBookmarkToUser(
+  userID: string,
+  { bookmarkList, tweetID }: { bookmarkList: string[]; tweetID: string }
+) {
+  try {
+    await axios.patch(`${BASE_URL}users/${userID}`, {
+      bookmarks: [...bookmarkList, tweetID],
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function removeBookmarkToUser(
+  userID: string,
+  { bookmarkList, tweetID }: { bookmarkList: string[]; tweetID: string }
+) {
+  console.log(...bookmarkList.filter((bk) => bk !== tweetID))
+  try {
+    await axios.patch(`${BASE_URL}users/${userID}`, {
+      bookmarks: [...bookmarkList.filter((bk) => bk !== tweetID)],
     });
   } catch (err) {
     console.log(err);

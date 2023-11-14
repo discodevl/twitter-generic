@@ -8,11 +8,11 @@
       "replys": [],
       "type": "tweet",
       "likes": [],
-      "bookmarksQuantity": 34,
+      "bookmarksQuantity": 0,
       "creationDate": "2023-11-06T15:49:53.629Z"
     },
     {
-      "id": "3",
+      "id": "2",
       "userID": "@cerrote7",
       "content": "sssiiiiiiiiiiiiimmm",
       "imageURL": "",
@@ -27,15 +27,14 @@
       "creationDate": "2023-11-06T17:49:53.629Z"
     },
     {
-      "1": "",
-      "id": "4",
+      "id": "3",
       "userID": "@rsjovit",
       "content": "sasasayurer",
       "imageURL": "",
       "replys": [],
       "type": "tweet",
       "likes": [],
-      "bookmarksQuantity": 1,
+      "bookmarksQuantity": 0,
       "creationDate": "2023-11-08T15:49:53.629Z"
     },
     {
@@ -62,9 +61,7 @@
       "following": [],
       "followers": [],
       "posts": [],
-      "bookmarks": [
-        "4"
-      ]
+      "bookmarks": []
     },
     {
       "id": "@cerrote7",
@@ -103,7 +100,9 @@
       "following": [],
       "followers": [],
       "posts": [],
-      "bookmarks": []
+      "bookmarks": [
+        "1"
+      ]
     }
   ]
 }
