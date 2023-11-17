@@ -1,7 +1,7 @@
 import axios from "axios";
 import { TweetType, UserType } from "../model/interfaces";
 
-const BASE_URL = "http://localhost:3000/";
+const BASE_URL = "http://localhost:5000/";
 
 export async function getAllTweets(): Promise<TweetType[]> {
   const res = await axios.get(
@@ -67,7 +67,7 @@ export async function increaseBookmark(id: string, bookmarksQnt: number) {
 export async function decreaseBookmark(id: string, bookmarksQnt: number) {
   try {
     await axios.patch(`${BASE_URL}tweets/${id}`, {
-      bookmarksQuantity: bookmarksQnt,
+      bookmarksQuantity: bookmarksQnt - 1,
     });
   } catch (err) {
     console.log(err);

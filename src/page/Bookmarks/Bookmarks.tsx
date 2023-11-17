@@ -15,6 +15,8 @@ function Bookmarks() {
     queryFn: () => getUserByID(userID),
   });
 
+  console.log(data)
+
   return (
     <div className={styles["container-bookmarks"]}>
       <div className={styles["header-bk"]}>
@@ -28,7 +30,6 @@ function Bookmarks() {
       </div>
 
       {data?.bookmarks
-        .filter((bk) => bk === userID)
         .map((id) => (
           <BookmarkPost key={id} postID={id} />
         ))}

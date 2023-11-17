@@ -8,7 +8,7 @@
       "replys": [],
       "type": "tweet",
       "likes": [],
-      "bookmarksQuantity": 0,
+      "bookmarksQuantity": 2,
       "creationDate": "2023-11-06T15:49:53.629Z"
     },
     {
@@ -21,9 +21,10 @@
       ],
       "type": "tweet",
       "likes": [
-        "@luvadepedreiro"
+        "@luvadepedreiro",
+        "@euai"
       ],
-      "bookmarksQuantity": 0,
+      "bookmarksQuantity": 1,
       "creationDate": "2023-11-06T17:49:53.629Z"
     },
     {
@@ -101,7 +102,8 @@
       "followers": [],
       "posts": [],
       "bookmarks": [
-        "1"
+        "1",
+        "2"
       ]
     }
   ]

@@ -25,9 +25,10 @@ import styles from "./SinglePost.module.css";
 
 type SinglePostProps = {
   tweet: TweetType;
+  reload: () => void;
 };
 
-function SinglePost({ tweet }: SinglePostProps) {
+function SinglePost({ tweet, reload }: SinglePostProps) {
   const { userID } = useGetUserID();
   const { data: currentUser } = useQuery({
     queryKey: ["user", userID],
@@ -35,7 +36,7 @@ function SinglePost({ tweet }: SinglePostProps) {
   });
   const { data } = useQuery({
     queryKey: ["user", tweet.userID],
-    queryFn: () => getUserByID(tweet.userID),
+    queryFn: () => getUserByID(tweet.userID)
   });
   const likeIncMutation = useMutation({
     mutationFn: () => increseLike(tweet.id, { likes: tweet.likes, userID }),
@@ -83,6 +84,14 @@ function SinglePost({ tweet }: SinglePostProps) {
 
   const views = useMemo(() => Math.ceil(Math.random() * 5), []);
 
+  useEffect(() => {
+    //todo improve
+    async function refetch() {
+      await reload()
+    }
+    refetch()
+  }, [handleBookmark, handleLike])
+
   function openDetails() {
     navigate(`/status/${tweet.id}`);
   }
@@ -101,7 +110,7 @@ function SinglePost({ tweet }: SinglePostProps) {
     console.log("views");
   }
 
-  function handleBookmark(e: SyntheticEvent) {
+  async function handleBookmark(e: SyntheticEvent) {
     e.stopPropagation();
     if (isBookmarked) {
       removeBookmarkMutation.mutate();
@@ -114,7 +123,7 @@ function SinglePost({ tweet }: SinglePostProps) {
     }
   }
 
-  function handleLike(e: SyntheticEvent) {
+  async function handleLike(e: SyntheticEvent) {
     e.stopPropagation();
     if (isLiked) {
       likeDecMutation.mutate();
@@ -203,7 +212,7 @@ function SinglePost({ tweet }: SinglePostProps) {
               className={styles["counter"]}
               style={{ color: (hover.like || isLiked) && "rgb(210,20,108)" }}
             >
-              {tweet.likes.length + (isLiked ? 1 : 0)}
+              {tweet.likes.length}
             </span>
           </div>
           <div className={styles["opt-wrap"]} onClick={viewsHandler}>

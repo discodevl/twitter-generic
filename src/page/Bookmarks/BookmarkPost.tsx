@@ -1,30 +1,53 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { SyntheticEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Avatar from "../../components/Avatar/Avatar";
-import { getTweetByID, getUserByID } from "../../util/api";
+import {
+  decreaseBookmark,
+  getTweetByID,
+  getUserByID,
+  removeBookmarkToUser,
+} from "../../util/api";
 import styles from "./BookmarkPost.module.css";
 import {
   FiBarChart2,
-  FiBookmark,
   FiDownload,
   FiHeart,
   FiMessageCircle,
   FiMoreHorizontal,
 } from "react-icons/fi";
+import { GoBookmarkFill } from "react-icons/go";
+import useGetUserID from "../../hooks/useGetUserID";
 
 type BookmarkPostProps = {
   postID: string;
 };
 
 function BookmarkPost({ postID }: BookmarkPostProps) {
+  const { userID } = useGetUserID();
+  const { data: currentUser } = useQuery({
+    queryKey: ["user", userID],
+    queryFn: () => getUserByID(userID),
+  });
   const { data: post } = useQuery({
     queryKey: ["tweet", postID],
     queryFn: () => getTweetByID(postID),
   });
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey: ["user", post?.userID],
     queryFn: () => getUserByID(post?.userID),
+  });
+
+  const removeBookmarkMutation = useMutation({
+    mutationFn: () => decreaseBookmark(post.id, post.bookmarksQuantity),
+  });
+
+  const removeBookmarkUserMutation = useMutation({
+    mutationFn: () =>
+      removeBookmarkToUser(userID, {
+        bookmarkList: currentUser?.bookmarks,
+        tweetID: post.id,
+      }),
   });
 
   const [hoverIco, setHoverIco] = useState(false);
@@ -41,6 +64,14 @@ function BookmarkPost({ postID }: BookmarkPostProps) {
   function postPage(e: SyntheticEvent) {
     e.stopPropagation();
     navigate(`/status/${postID}`);
+  }
+
+  async function removeBookmark(e:SyntheticEvent) {
+    //todo
+    e.stopPropagation()
+    removeBookmarkMutation.mutate();
+    removeBookmarkUserMutation.mutate();
+    await refetch()
   }
 
   return (
@@ -118,7 +149,7 @@ function BookmarkPost({ postID }: BookmarkPostProps) {
               className={styles["counter"]}
               style={{ color: hover.like && "rgb(210,20,108)" }}
             >
-              {post?.likes}
+              {post?.likes.length}
             </span>
           </div>
           <div className={styles["opt-wrap"]}>
@@ -150,11 +181,9 @@ function BookmarkPost({ postID }: BookmarkPostProps) {
               onMouseLeave={() =>
                 setHover((prev) => ({ ...prev, bookmark: false }))
               }
+              onClick={removeBookmark}
             >
-              <FiBookmark
-                size="18px"
-                color={hover.bookmark ? "rgb(29, 156, 240)" : "#2f3336"}
-              />
+              <GoBookmarkFill size="18px" color="rgb(29, 156, 240)" />
             </div>
             <div
               className={styles["ico"]}

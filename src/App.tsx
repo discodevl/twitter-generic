@@ -16,8 +16,10 @@ function App() {
 
   useEffect(() => {
     if (userID) return;
-    localStorage.setItem("userID", "@euai");
+    localStorage.setItem("userID", "@luvadepedreiro");
   }, []);
+
+  //npx json-server --watch db.json --port 5000
 
   return (
     <Container>

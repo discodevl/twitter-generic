@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiImage } from "react-icons/fi";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
 import { ImEarth } from "react-icons/im";
@@ -21,7 +21,7 @@ function AddPost({reload}: AddPostProps) {
 
   const { userID } = useGetUserID();
 
-  function createTweet() {
+  async function createTweet() {
     tweetMutation.mutate({
       id: uuidv4(),
       userID,
@@ -34,8 +34,16 @@ function AddPost({reload}: AddPostProps) {
       creationDate: new Date().toISOString(),
     });
     setText("");
-    reload()
   }
+
+  useEffect(() => {
+    //todo improve
+    console.log("run")
+    async function refetch() {
+      await reload()
+    }
+    refetch()
+  }, [createTweet])
 
   return (
     <div className={styles["container-post"]}>
