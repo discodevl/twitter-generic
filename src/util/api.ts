@@ -23,6 +23,11 @@ export async function getTweetByID(id: string): Promise<TweetType> {
   return res.data;
 }
 
+export async function getTweetsBySearch(text: string) {
+  const res = await axios.get(`${BASE_URL}tweets?q=${text}`)
+  return res.data;
+}
+
 export async function postTweet(postBody: TweetType) {
   try {
     await axios.post(`${BASE_URL}tweets`, { ...postBody });

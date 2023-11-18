@@ -4,6 +4,7 @@ import styles from "./Explore.module.css";
 // import SinglePost from "../Feed/SinglePost";
 
 function Explore() {
+  
   return (
     <div className={styles["container-explore"]}>
       <div className={styles["search-wrap"]}>
