@@ -24,7 +24,7 @@
         "@luvadepedreiro",
         "@euai"
       ],
-      "bookmarksQuantity": 1,
+      "bookmarksQuantity": 2,
       "creationDate": "2023-11-06T17:49:53.629Z"
     },
     {
@@ -62,7 +62,9 @@
       "following": [],
       "followers": [],
       "posts": [],
-      "bookmarks": []
+      "bookmarks": [
+        "2"
+      ]
     },
     {
       "id": "@cerrote7",
